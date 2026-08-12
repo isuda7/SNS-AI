@@ -51,7 +51,16 @@ function renderList() {
     });
 
     const pageTitle = document.getElementById('main-page-title');
-    pageTitle.innerText = state.currentFilter === 'all' ? '전체 원고 대기열' : '카테고리 원고 리스트';
+    let titleText = '전체 원고 대기열';
+    if (state.currentFilter !== 'all') {
+        if (state.currentFilter.startsWith('account-')) {
+            const accNum = state.currentFilter.split('-')[1];
+            titleText = `계정 ${accNum} 원고 전체보기`;
+        } else {
+            titleText = state.currentFilter;
+        }
+    }
+    pageTitle.innerText = titleText;
     
     const pageDesc = document.querySelector('.page-header p');
     pageDesc.innerText = `현재 조건에 맞는 원고가 총 ${filteredDrafts.length}건 대기 중입니다.`;
@@ -161,6 +170,7 @@ function setupFilters() {
 const contentModal = document.getElementById('content-modal');
 const promptModal = document.getElementById('prompt-modal');
 const auditModal = document.getElementById('audit-modal');
+const categoryAuditModal = document.getElementById('category-audit-modal');
 const vibeModal = document.getElementById('vibe-modal');
 
 const modalBody = document.getElementById('modal-body-content');
@@ -241,7 +251,12 @@ window.generateNewAIDraft = function(forcedCategory) {
         : state.currentFilter);
         
     const promptText = `AI야, 현재 카테고리 [${targetCategory}]에 어울리는 새로운 블로그 원고를 1개 작성해 줘. 
-반드시 공백 제외 1,500자 이상으로 꽉 채워서 작성하고, 이미지는 상단에 딱 1장만 넣어줘. 
+
+[콘텐츠 기획 및 작성 필수 조건]
+1. 주제 선정: 타겟 독자의 페인포인트(Pain Point)나 강렬한 욕망(돈, 시간 절약 등)을 정확히 건드리는 뾰족한 주제를 기획할 것.
+2. 후킹(Hooking): 뻔하고 지루한 '교과서적 정보'는 절대 배제하고, "업자들만 아는 OO의 비밀", "당신이 OO하면 망하는 이유"처럼 무조건 클릭할 수밖에 없는 강력한 어그로 스킬을 사용할 것.
+3. 분량 및 이미지: 반드시 공백 제외 1,500자 이상으로 꽉 채워서 작성하고, 이미지는 원고 최상단에 딱 1장만 넣을 것.
+
 작성이 끝나면 해당 내용을 dashboard/data/ 폴더 하위에 있는 [해당 카테고리명.js] 파일을 찾아서, 기존 배열에 새로운 원고 객체(Object)를 추가(Append)하여 저장해 줘.`;
 
     document.getElementById('vibe-modal-title').innerHTML = '🤖 바이브 코딩 지시어 (원고 생성)';
@@ -272,10 +287,13 @@ window.openPromptModal = function() { promptModal.classList.add('show'); };
 window.closePromptModal = function() { promptModal.classList.remove('show'); };
 window.openAuditModal = function() { if(auditModal) auditModal.classList.add('show'); };
 window.closeAuditModal = function() { if(auditModal) auditModal.classList.remove('show'); };
+window.openCategoryAuditModal = function() { if(categoryAuditModal) categoryAuditModal.classList.add('show'); };
+window.closeCategoryAuditModal = function() { if(categoryAuditModal) categoryAuditModal.classList.remove('show'); };
 
 contentModal.addEventListener('click', (e) => { if (e.target === contentModal) closeContentModal(); });
 promptModal.addEventListener('click', (e) => { if (e.target === promptModal) closePromptModal(); });
 if(auditModal) auditModal.addEventListener('click', (e) => { if (e.target === auditModal) closeAuditModal(); });
+if(categoryAuditModal) categoryAuditModal.addEventListener('click', (e) => { if (e.target === categoryAuditModal) closeCategoryAuditModal(); });
 if(vibeModal) vibeModal.addEventListener('click', (e) => { if (e.target === vibeModal) closeVibeModal(); });
 
 window.copyModalContent = function(elementId, btnElement, isTextarea = false) {

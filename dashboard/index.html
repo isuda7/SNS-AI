@@ -25,18 +25,24 @@
         <div class="topbar-nav" style="display:none;"></div>
 
         <div class="user-profile">
-            <button class="btn-prompt" onclick="openTrainingModal()" style="border-color:var(--primary); color:var(--primary); margin-right:0.3rem; display:inline-flex; align-items:center; gap:0.4rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.1rem; height: 1.1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                AI 학습 프롬프트
-            </button>
-            <button class="btn-prompt" onclick="openPromptModal()" style="border-color:var(--primary); color:var(--primary); margin-right:0.3rem; display:inline-flex; align-items:center; gap:0.4rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.1rem; height: 1.1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
-                기획 프롬프트
-            </button>
-            <button class="btn-prompt" onclick="openAuditModal()" style="border-color:var(--success); color:var(--success); display:inline-flex; align-items:center; gap:0.4rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.1rem; height: 1.1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-                감시 프롬프트
-            </button>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button class="btn-prompt" onclick="openTrainingModal()" style="border-color:var(--primary); color:var(--primary); display:inline-flex; align-items:center; gap:0.3rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.1rem; height: 1.1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    [학습] AI 페르소나
+                </button>
+                <button class="btn-prompt" onclick="openPromptModal()" style="border-color:var(--primary); color:var(--primary); display:inline-flex; align-items:center; gap:0.3rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.1rem; height: 1.1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
+                    [학습] 원고 작성 룰셋
+                </button>
+                <button class="btn-prompt" onclick="openAuditModal()" style="border-color:var(--success); color:var(--success); display:inline-flex; align-items:center; gap:0.3rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.1rem; height: 1.1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                    [감시] 발행 원고 품질
+                </button>
+                <button class="btn-prompt" onclick="openCategoryAuditModal()" style="border-color:#8b5cf6; color:#8b5cf6; display:inline-flex; align-items:center; gap:0.3rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.1rem; height: 1.1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>
+                    [감시] 카테고리 기획
+                </button>
+            </div>
             <div class="avatar" style="margin-left: 1rem;">J</div>
         </div>
     </header>
@@ -65,11 +71,11 @@
 
         <!-- Account 2: Finance -->
         <div class="sidebar-group">
-            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-2">
+            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-2">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 계정 2 (경제 / 재테크)
             <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-            <ul class="category-tree">
+            <ul class="category-tree collapsed">
                 <li><a href="#" data-filter="청년 정책 & 지원금"><span>청년 정책 & 지원금</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="짠테크 & 소액 투자"><span>짠테크 & 소액 투자</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="국내/해외 ETF 시황"><span>국내/해외 ETF 시황</span> <span class="cat-count">0</span></a></li>
@@ -80,16 +86,64 @@
 
         <!-- Account 3: Self-Improvement -->
         <div class="sidebar-group">
-            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-3">
+            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-3">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 계정 3 (자기계발)
             <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-            <ul class="category-tree">
+            <ul class="category-tree collapsed">
                 <li><a href="#" data-filter="동기부여 & 독서 기록"><span>동기부여 & 독서 기록</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="방구석 부업 파이프라인"><span>방구석 부업 파이프라인</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="시간관리 & 기적의 루틴"><span>시간관리 & 기적의 루틴</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="퍼스널 브랜딩 노하우"><span>퍼스널 브랜딩 노하우</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="월별 추천도서 (인문/소설)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Account 4: Health & Fitness -->
+        <div class="sidebar-group">
+            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-4">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                계정 4 (건강 / 운동)
+                <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <ul class="category-tree collapsed">
+                <li><a href="#" data-filter="직장인 홈트레이닝 루틴"><span>직장인 홈트레이닝 루틴</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="다이어트 식단 & 레시피"><span>다이어트 식단 & 레시피</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="영양제/보충제 내돈내산 리뷰"><span>영양제/보충제 내돈내산 리뷰</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="스트레스 & 멘탈 케어"><span>스트레스 & 멘탈 케어</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="월별 추천도서 (건강/실용)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Account 5: Travel & Lifestyle -->
+        <div class="sidebar-group">
+            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                계정 5 (여행 / 라이프스타일)
+                <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <ul class="category-tree collapsed">
+                <li><a href="#" data-filter="주말 치트키! 국내 숨은 명소"><span>주말 치트키! 국내 숨은 명소</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="직장인 가성비 해외여행"><span>직장인 가성비 해외여행</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="감성 숙소 & 호캉스 리뷰"><span>감성 숙소 & 호캉스 리뷰</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="핫플레이스 카페 투어"><span>핫플레이스 카페 투어</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="월별 추천도서 (여행/에세이)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Account 6: Food & Cooking -->
+        <div class="sidebar-group">
+            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-6">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                계정 6 (푸드 / 요리)
+                <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <ul class="category-tree collapsed">
+                <li><a href="#" data-filter="자취생 10분 완성 밀키트"><span>자취생 10분 완성 밀키트</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="홈카페 & 주말 브런치"><span>홈카페 & 주말 브런치</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="편의점 신상 솔직 리뷰"><span>편의점 신상 솔직 리뷰</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="가성비 오마카세/맛집 탐방"><span>가성비 오마카세/맛집 탐방</span> <span class="cat-count">0</span></a></li>
+                <li><a href="#" data-filter="월별 추천도서 (요리/푸드)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
             </ul>
         </div>
 
@@ -219,12 +273,13 @@
                 <textarea class="prompt-textarea" id="audit-prompt-textarea" style="height: 400px; border-color:var(--success);">System Role: 너는 네이버/구글 검색엔진 최적화(SEO) 품질 검수 책임자야.
 내가 전달하는 블로그 원고를 읽고, 아래의 [감시 기준 4가지]를 통과했는지 100점 만점으로 채점하고 보완점을 지시해 줘.
 
-[감시 기준 4가지]
+[감시 기준 6가지]
 1. 분량 검수 (40점): 본문 텍스트가 공백을 제외하고 1,500자를 넘겼는가? (부족하다면 구체적으로 어떤 단락을 더 늘려야 할지 지적할 것)
-2. 이미지 룰셋 검수 (20점): 본문 내에 삽입된 이미지 태그가 오직 1개인가? (2개 이상이라면 모두 삭제하고 상단 1개만 남기도록 지시할 것)
+2. 이미지 룰셋 검수 (20점): 본문 최상단에 이미지 태그가 오직 1개만 있는지 확인하라. 단, '추천도서' 등 여러 아이템을 소개하는 특수 카테고리 원고는 예외로 여러 장의 이미지를 허용한다. 예외 상황이 아님에도 이미지가 2개 이상이라면 상단 1개만 남기고 모두 삭제하도록 지시할 것.
 3. 검색 의도(Search Intent) 검수 (20점): 서론 첫 문단에서 검색자가 앓고 있는 문제(Pain Point)를 정확히 짚어주고 해결책을 암시했는가?
 4. 가독성 검수 (20점): 텍스트가 지루하게 나열되지 않고, 중간에 '비교 표(Table)'나 '체크리스트'가 적절히 사용되어 체류시간을 높이도록 설계되었는가?
 5. 어투 및 표현 검수 (감점 0점 처리): "최종 결론 및 강력한 액션 플랜", "실전 적용 가이드" 등과 같이 뻔하고 기계적인 프레임의 소제목이 사용되었는가? 발견 시 0점 처리하고, 문맥에 맞는 현실적이고 자연스러운 언어로 매번 다르게 풀어쓰도록 엄격히 지시할 것.
+6. 주제 매력도(Hook) 검수 (감점 0점 처리): 원고의 주제와 내용이 검색자들이 실제로 매우 궁금해할 만하고 시선을 확 끄는(어그로/후킹) 요소가 포함되어 있는가? 평이하고 지루한 내용이라면 0점 처리하고 훨씬 자극적이고 흥미로운 주제로 다시 쓰도록 지시할 것.
 
 [출력 양식]
 - 총점: OO 점
@@ -238,8 +293,46 @@
                 <button class="btn btn-primary" onclick="copyModalContent('audit-prompt-textarea', this, true)" style="background:var(--success);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> 감시 프롬프트 복사</button>
             </div>
         </div>
+        </div>
     </div>
 
+    <!-- Category Audit Modal -->
+    <div class="full-modal-overlay" id="category-audit-modal">
+        <div class="full-modal-content" style="width: 700px; max-width: 90%;">
+            <div class="modal-header" style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> 카테고리 기획 감시(QA) 프롬프트</h2>
+                <button class="btn-close" onclick="closeCategoryAuditModal()">&times;</button>
+            </div>
+            
+            <div class="modal-body" style="padding: 1.5rem 2rem;">
+                <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.95rem;">
+                    새로운 계정과 카테고리 기획안이 수익성과 확장성 기준에 적합한지 AI가 평가하도록 지시합니다.
+                </p>
+                <textarea class="prompt-textarea" id="category-audit-prompt-textarea" style="height: 400px; border-color:#8b5cf6;">System Role: 너는 월 수익 1천만 원 이상을 내는 탑티어 블로그/SNS 콘텐츠 기획자이자 카테고리 감시자(QA)야.
+
+내가 새롭게 추가하려는 [계정 주제]와 그 하위 [5개 카테고리] 기획안을 읽고, 아래의 [카테고리 기획 감시 기준 4가지]를 통과했는지 100점 만점으로 채점하고 보완점을 지시해 줘.
+
+[카테고리 기획 감시 기준 4가지]
+1. 수익 모델 직결성 (30점): 협찬이나 광고(CPA, 애드센스 등)가 바로 붙을 수 있는 명확한 수익화 카테고리가 포함되어 있는가?
+2. 타겟의 뾰족함 (30점): 너무 넓은 대분류가 아니라 롱테일 키워드와 구체적인 페인포인트(Pain point)를 겨냥한 카테고리인가?
+3. 무한한 확장성 (20점): 글을 10개만 쓰면 소재가 고갈되지 않고, 매주 새로운 소재를 무한히 발굴할 수 있는 확장 가능한 카테고리가 있는가?
+4. 전문성과 체류시간 방어 (20점): 너무 자극적인 글만 있지 않고, 계정의 전문성을 높이고 체류시간을 방어할 수 있는 '월별 추천도서' 같은 앵커(Anchor) 카테고리가 5번째에 배치되었는가?
+
+[출력 양식]
+- 총점: OO 점
+- 감시 결과 요약: (통과 / 전면 재기획 요망)
+- 기준별 피드백: (1~4번 기준에 대한 상세 피드백 및 부족한 점 지적)
+- 즉시 수정할 내용: (기준에 미달한 카테고리를 어떻게 뾰족하게 바꿀지 대안 제시)</textarea>
+            </div>
+            
+            <div class="modal-footer" style="padding: 1.5rem 2rem;">
+                <button class="btn btn-secondary" onclick="closeCategoryAuditModal()">취소</button>
+                <button class="btn btn-primary" onclick="copyModalContent('category-audit-prompt-textarea', this, true)" style="background:#8b5cf6;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> 기획 감시 프롬프트 복사
+                </button>
+            </div>
+        </div>
+    </div>
         <!-- Vibe Coding Prompt Modal (For Create & Delete) -->
     <div class="full-modal-overlay" id="vibe-modal">
         <div class="full-modal-content" style="width: 600px; height: auto; max-height: 90%;">
@@ -319,6 +412,10 @@
     <script src="data/account1/전자기기_실사용_리뷰.js"></script>
     <script src="data/account1/스마트홈_IoT_기기.js"></script>
     <script src="data/account1/월별_추천도서.js"></script>
+    
+    <!-- Account 4 -->
+    <script src="data/account4/직장인_홈트레이닝_루틴.js"></script>
+    
     <script src="data/ai_templates.js"></script>
     <script src="js/app.js"></script>
 </body>
