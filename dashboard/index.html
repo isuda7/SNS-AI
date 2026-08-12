@@ -50,108 +50,546 @@
     <!-- Sidebar (3 Accounts Category Tree) -->
     <aside class="sidebar" style="overflow-y: auto;">
         
-        <div style="margin-bottom: 1rem;">
-            <a href="#" class="active" data-filter="all" style="color:var(--text-main); font-weight:bold; text-decoration:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> 전체 원고 보기</a>
-        </div>
-
-        <!-- Account 1: IT/Tech -->
-        <div class="sidebar-group">
-            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-1">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                계정 1 (IT / 테크)
-            <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-            <ul class="category-tree">
-                <li><a href="#" data-filter="전자기기 실사용 리뷰"><span>전자기기 실사용 리뷰</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="AI 툴 & 생산성 앱"><span>AI 툴 & 생산성 앱</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="애플/갤럭시 최신 루머"><span>애플/갤럭시 최신 루머</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="스마트홈/IoT 기기"><span>스마트홈/IoT 기기</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="월별 추천도서 (IT/과학)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
-            </ul>
-        </div>
-
-        <!-- Account 2: Finance -->
-        <div class="sidebar-group">
-            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                계정 2 (경제 / 재테크)
-            <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-            <ul class="category-tree collapsed">
-                <li><a href="#" data-filter="청년 정책 & 지원금"><span>청년 정책 & 지원금</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="짠테크 & 소액 투자"><span>짠테크 & 소액 투자</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="국내/해외 ETF 시황"><span>국내/해외 ETF 시황</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="부동산 청약 가이드"><span>부동산 청약 가이드</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="월별 추천도서 (경제/경영)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
-            </ul>
-        </div>
-
-        <!-- Account 3: Self-Improvement -->
-        <div class="sidebar-group">
-            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-3">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                계정 3 (자기계발)
-            <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-            <ul class="category-tree collapsed">
-                <li><a href="#" data-filter="동기부여 & 독서 기록"><span>동기부여 & 독서 기록</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="방구석 부업 파이프라인"><span>방구석 부업 파이프라인</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="시간관리 & 기적의 루틴"><span>시간관리 & 기적의 루틴</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="퍼스널 브랜딩 노하우"><span>퍼스널 브랜딩 노하우</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="월별 추천도서 (인문/소설)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
-            </ul>
-        </div>
-
-        <!-- Account 4: Health & Fitness -->
-        <div class="sidebar-group">
-            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-4">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                계정 4 (건강 / 운동)
-                <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <!-- 사이드바 헤더 (작업 유저 선택) -->
+        <div style="position: sticky; top: -2.5rem; background: var(--sidebar-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); z-index: 10; margin: -2.5rem -1.5rem 1.5rem -1.5rem; padding: 2.5rem 1.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border-light);">
+            <label style="display:block; font-size:0.75rem; color:var(--text-muted); margin-bottom:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">작업 유저 (워크스페이스)</label>
+            <a href="#" id="custom-user-dropdown-btn" style="color:var(--text-main); font-weight:800; text-decoration:none; display: flex; align-items: center; padding: 0.2rem 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span id="custom-user-dropdown-text" style="font-size: 1.05rem;">조찬기</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: var(--text-muted);"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            
+            <div id="custom-user-dropdown-menu" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; border: 1px solid var(--border); border-top: none; border-bottom-left-radius: 0.75rem; border-bottom-right-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); z-index: 100; overflow: hidden;">
+                <a href="#" class="custom-user-option" data-value="1" style="display: flex; align-items: center; padding: 0.8rem 1.5rem; color: var(--text-main); text-decoration: none; font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid var(--border-light); transition: background 0.2s;" onmouseover="this.style.background='var(--bg-dark)'" onmouseout="this.style.background='transparent'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; opacity: 0.7;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>조찬기</a>
+                <a href="#" class="custom-user-option" data-value="2" style="display: flex; align-items: center; padding: 0.8rem 1.5rem; color: var(--text-main); text-decoration: none; font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid var(--border-light); transition: background 0.2s;" onmouseover="this.style.background='var(--bg-dark)'" onmouseout="this.style.background='transparent'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; opacity: 0.7;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>조민숙</a>
+                <a href="#" class="custom-user-option" data-value="3" style="display: flex; align-items: center; padding: 0.8rem 1.5rem; color: var(--text-main); text-decoration: none; font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid var(--border-light); transition: background 0.2s;" onmouseover="this.style.background='var(--bg-dark)'" onmouseout="this.style.background='transparent'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; opacity: 0.7;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>최미자</a>
+                <a href="#" class="custom-user-option" data-value="4" style="display: flex; align-items: center; padding: 0.8rem 1.5rem; color: var(--text-main); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: background 0.2s;" onmouseover="this.style.background='var(--bg-dark)'" onmouseout="this.style.background='transparent'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; opacity: 0.7;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>이재문</a>
             </div>
-            <ul class="category-tree collapsed">
-                <li><a href="#" data-filter="직장인 홈트레이닝 루틴"><span>직장인 홈트레이닝 루틴</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="다이어트 식단 & 레시피"><span>다이어트 식단 & 레시피</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="영양제/보충제 내돈내산 리뷰"><span>영양제/보충제 내돈내산 리뷰</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="스트레스 & 멘탈 케어"><span>스트레스 & 멘탈 케어</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="월별 추천도서 (건강/실용)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
-            </ul>
         </div>
 
-        <!-- Account 5: Travel & Lifestyle -->
-        <div class="sidebar-group">
-            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-5">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                계정 5 (여행 / 라이프스타일)
-                <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <!-- User 1 -->
+        <div class="user-group" id="user-group-1" style="margin-bottom: 1.5rem;">
+            <!-- Account 1: IT/Tech -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-1">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    suda7
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        하드웨어 & 기기 분석
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="전자기기 스펙 비교 분석" class="menu-link"><span>전자기기 스펙 비교 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="스마트홈/IoT 기기" class="menu-link"><span>스마트홈/IoT 기기</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="컴퓨터 부품 & 조립 가이드" class="menu-link"><span>컴퓨터 부품 & 조립 가이드</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        소프트웨어 & 트렌드
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="AI 툴 & 생산성 앱" class="menu-link"><span>AI 툴 & 생산성 앱</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="소프트웨어 개발 트렌드" class="menu-link"><span>소프트웨어 개발 트렌드</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="유용한 크롬 확장프로그램" class="menu-link"><span>유용한 크롬 확장프로그램</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        IT 이슈 & 기타
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="애플/갤럭시 최신 루머" class="menu-link"><span>애플/갤럭시 최신 루머</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="IT 기업 분석 & 실적 리뷰" class="menu-link"><span>IT 기업 분석 & 실적 리뷰</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="블록체인 & 웹3.0" class="menu-link"><span>블록체인 & 웹3.0</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="IT/과학 명저 인사이트" class="menu-link"><span>IT/과학 명저 인사이트</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
             </div>
-            <ul class="category-tree collapsed">
-                <li><a href="#" data-filter="주말 치트키! 국내 숨은 명소"><span>주말 치트키! 국내 숨은 명소</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="직장인 가성비 해외여행"><span>직장인 가성비 해외여행</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="감성 숙소 & 호캉스 리뷰"><span>감성 숙소 & 호캉스 리뷰</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="핫플레이스 카페 투어"><span>핫플레이스 카페 투어</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="월별 추천도서 (여행/에세이)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
-            </ul>
+
+            <!-- Account 2: Finance -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    tlskfldhwkrrk
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        주식 & 크립토 투자
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="국내/해외 ETF 시황" class="menu-link"><span>국내/해외 ETF 시황</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="배당주 투자 포트폴리오" class="menu-link"><span>배당주 투자 포트폴리오</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="가상화폐 시장 동향" class="menu-link"><span>가상화폐 시장 동향</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        실생활 재테크
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="짠테크 & 소액 투자" class="menu-link"><span>짠테크 & 소액 투자</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="연말정산 & 절세 노하우" class="menu-link"><span>연말정산 & 절세 노하우</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="신용카드 혜택 비교" class="menu-link"><span>신용카드 혜택 비교</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        정책 & 부동산
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="청년 정책 & 지원금" class="menu-link"><span>청년 정책 & 지원금</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="부동산 청약 가이드" class="menu-link"><span>부동산 청약 가이드</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        N잡 & 추천 도서
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="부업 & 파이프라인 구축기" class="menu-link"><span>부업 & 파이프라인 구축기</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="경제/경영 베스트셀러 요약" class="menu-link"><span>경제/경영 베스트셀러 요약</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Account 3: Self-Improvement -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-3">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    suda9
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        마인드셋 & 동기부여
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="동기부여 명언 및 성공 철학" class="menu-link"><span>동기부여 명언 및 성공 철학</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="멘탈 관리 & 마인드 컨트롤" class="menu-link"><span>멘탈 관리 & 마인드 컨트롤</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="성공한 사람들의 마인드셋" class="menu-link"><span>성공한 사람들의 마인드셋</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        시간관리 & 목표
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="시간관리 기법 & 생산성 팁" class="menu-link"><span>시간관리 기법 & 생산성 팁</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="목표 달성 & 만다라트" class="menu-link"><span>목표 달성 & 만다라트</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        자기계발 스킬
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="퍼스널 브랜딩 노하우" class="menu-link"><span>퍼스널 브랜딩 노하우</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="스피치 & 커뮤니케이션 스킬" class="menu-link"><span>스피치 & 커뮤니케이션 스킬</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        수익화 & 도서
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="온라인 수익 창출 아이디어" class="menu-link"><span>온라인 수익 창출 아이디어</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="업무 자동화 도구 분석" class="menu-link"><span>업무 자동화 도구 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="성공학/인문학 도서 요약" class="menu-link"><span>성공학/인문학 도서 요약</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <!-- Account 6: Food & Cooking -->
-        <div class="sidebar-group">
-            <div class="sidebar-group-title collapsed" style="cursor:pointer;" data-filter="account-6">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                계정 6 (푸드 / 요리)
-                <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <!-- User 2 -->
+        <div class="user-group" id="user-group-2" style="margin-bottom: 1.5rem; display: none;">
+            <!-- Account 4 -> User 2's Account 1 -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-4">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    a50366
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        운동 & 체형 관리
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="홈트레이닝 이론 & 루틴 가이드" class="menu-link"><span>홈트레이닝 이론 & 루틴 가이드</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="체형 교정 & 스트레칭" class="menu-link"><span>체형 교정 & 스트레칭</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="헬스장 기구 사용법" class="menu-link"><span>헬스장 기구 사용법</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        다이어트 & 식단
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="다이어트 식단 & 레시피" class="menu-link"><span>다이어트 식단 & 레시피</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="건강기능식품 성분 완벽 분석" class="menu-link"><span>건강기능식품 성분 완벽 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="운동 생리학 & 근성장 원리" class="menu-link"><span>운동 생리학 & 근성장 원리</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        멘탈 & 건강 케어
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="현대인 정신건강 & 심리 분석" class="menu-link"><span>현대인 정신건강 & 심리 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="수면 건강 & 리듬 찾기" class="menu-link"><span>수면 건강 & 리듬 찾기</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="유산소 운동 효과 & 팁" class="menu-link"><span>유산소 운동 효과 & 팁</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        추천 도서
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="해외 건강 칼럼 번역" class="menu-link"><span>해외 건강 칼럼 번역</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
             </div>
-            <ul class="category-tree collapsed">
-                <li><a href="#" data-filter="자취생 10분 완성 밀키트"><span>자취생 10분 완성 밀키트</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="홈카페 & 주말 브런치"><span>홈카페 & 주말 브런치</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="편의점 신상 솔직 리뷰"><span>편의점 신상 솔직 리뷰</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="가성비 오마카세/맛집 탐방"><span>가성비 오마카세/맛집 탐방</span> <span class="cat-count">0</span></a></li>
-                <li><a href="#" data-filter="월별 추천도서 (요리/푸드)"><span>월별 추천도서</span> <span class="cat-count">0</span></a></li>
-            </ul>
+
+            <!-- Account 5 -> User 2's Account 2 -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-5">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    attii
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        국내 여행 & 핫플
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="국내 명소 역사 & 배경지식" class="menu-link"><span>국내 명소 역사 & 배경지식</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="호캉스 트렌드 & 럭셔리 호텔" class="menu-link"><span>호캉스 트렌드 & 럭셔리 호텔</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="글로벌 랜선 투어 (국내편)" class="menu-link"><span>글로벌 랜선 투어 (국내편)</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="지역별 향토음식 스토리텔링" class="menu-link"><span>지역별 향토음식 스토리텔링</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        해외 여행 & 꿀팁
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="가성비 해외여행 루트 기획안" class="menu-link"><span>가성비 해외여행 루트 기획안</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="항공권 특가 예매 꿀팁" class="menu-link"><span>항공권 특가 예매 꿀팁</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        라이프스타일 & 문화
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="세계의 이색 축제 & 문화 탐구" class="menu-link"><span>세계의 이색 축제 & 문화 탐구</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="캠핑 장비 스펙 & 업계 트렌드" class="menu-link"><span>캠핑 장비 스펙 & 업계 트렌드</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="글로벌 미술관/박물관 탐방기" class="menu-link"><span>글로벌 미술관/박물관 탐방기</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="여행 다큐 & 에세이 인사이트" class="menu-link"><span>여행 다큐 & 에세이 인사이트</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Account 6 -> User 2's Account 3 -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-6">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    c50366
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        간편 요리 & 밀키트
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="밀키트 시장 트렌드 & 분석" class="menu-link"><span>밀키트 시장 트렌드 & 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="식재료 칼로리 & 영양소 백과" class="menu-link"><span>식재료 칼로리 & 영양소 백과</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="에어프라이어 요리 과학 및 원리" class="menu-link"><span>에어프라이어 요리 과학 및 원리</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        맛집 & 트렌드
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="편의점 신상품 출시 뉴스" class="menu-link"><span>편의점 신상품 출시 뉴스</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="파인다이닝 산업 리포트" class="menu-link"><span>파인다이닝 산업 리포트</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        레시피 & 페어링
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="커피 원두 & 홈카페 트렌드" class="menu-link"><span>커피 원두 & 홈카페 트렌드</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="제철 식재료 보관 꿀팁" class="menu-link"><span>제철 식재료 보관 꿀팁</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="세계 유명 레스토랑 역사" class="menu-link"><span>세계 유명 레스토랑 역사</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="와인 품종 & 전통주 스토리" class="menu-link"><span>와인 품종 & 전통주 스토리</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        푸드 도서
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="푸드 다큐멘터리 인사이트" class="menu-link"><span>푸드 다큐멘터리 인사이트</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        
+        <!-- User 3 -->
+        <div class="user-group" id="user-group-3" style="margin-bottom: 1.5rem; display: none;">
+            <!-- Account 7 -> User 3's Account 1 -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-7">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    b50366
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        마케팅 & 블로그
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="블로그 애드센스 승인 가이드" class="menu-link"><span>블로그 애드센스 승인 가이드</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="검색엔진 최적화(SEO) 핵심 팁" class="menu-link"><span>검색엔진 최적화(SEO) 핵심 팁</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="온라인 마케팅 & SNS 트렌드" class="menu-link"><span>온라인 마케팅 & SNS 트렌드</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        엔터 & 팝컬처
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="넷플릭스 신작 프리뷰 & 분석" class="menu-link"><span>넷플릭스 신작 프리뷰 & 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="글로벌 팝 컬처 & 음악 뉴스" class="menu-link"><span>글로벌 팝 컬처 & 음악 뉴스</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        교양 & 심리
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="게임 산업 & e스포츠 동향" class="menu-link"><span>게임 산업 & e스포츠 동향</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="역사 속 흥미로운 사건들 정리" class="menu-link"><span>역사 속 흥미로운 사건들 정리</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        동물 건강 & 상식
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="심리학 효과 & 행동경제학" class="menu-link"><span>심리학 효과 & 행동경제학</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="최신 사회 이슈 및 뉴스 요약" class="menu-link"><span>최신 사회 이슈 및 뉴스 요약</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="반려동물 건강 및 질병 상식" class="menu-link"><span>반려동물 건강 및 질병 상식</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Account 8 -> User 3's Account 2 -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-8">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    ms50366
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        어학 & 글로벌
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="비즈니스 영어 이메일 템플릿" class="menu-link"><span>비즈니스 영어 이메일 템플릿</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="토익/오픽 빈출 숙어 정리" class="menu-link"><span>토익/오픽 빈출 숙어 정리</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="실생활 스페인어 회화 스크립트" class="menu-link"><span>실생활 스페인어 회화 스크립트</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        자기주도학습 & 방법론
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="하버드생의 시간관리 및 학습법" class="menu-link"><span>하버드생의 시간관리 및 학습법</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="뇌과학 기반 암기 트레이닝 원리" class="menu-link"><span>뇌과학 기반 암기 트레이닝 원리</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="노션(Notion) 활용 대학생 포트폴리오" class="menu-link"><span>노션(Notion) 활용 대학생 포트폴리오</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        자격증 & 취업
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="컴퓨터활용능력 1급 실기 팁" class="menu-link"><span>컴퓨터활용능력 1급 실기 팁</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="공인중개사 1차 과목 요약" class="menu-link"><span>공인중개사 1차 과목 요약</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="대기업 직무적성검사(인적성) 트렌드" class="menu-link"><span>대기업 직무적성검사(인적성) 트렌드</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        에듀 도서
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="자녀 교육 및 학습법 베스트셀러" class="menu-link"><span>자녀 교육 및 학습법 베스트셀러</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- User 4 -->
+        <div class="user-group" id="user-group-4" style="margin-bottom: 1.5rem; display: none;">
+            <!-- Account 9 -> User 4's Account 1 -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-9">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    dlwoans2
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        신차 스펙 & 비교
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="하이브리드 vs 전기차 스펙 비교" class="menu-link"><span>하이브리드 vs 전기차 스펙 비교</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="2024년 출시 예정 SUV 리포트" class="menu-link"><span>2024년 출시 예정 SUV 리포트</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="자율주행 기술 레벨별 현황" class="menu-link"><span>자율주행 기술 레벨별 현황</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        차량 관리 & 정비
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="계절별 타이어 공기압 관리" class="menu-link"><span>계절별 타이어 공기압 관리</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="엔진오일 점도 및 교환주기 원리" class="menu-link"><span>엔진오일 점도 및 교환주기 원리</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="초보 운전자를 위한 셀프 세차 가이드" class="menu-link"><span>초보 운전자를 위한 세차 가이드</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        자동차 산업 트렌드
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="전기차 배터리 기술 요약" class="menu-link"><span>전기차 배터리 기술 요약</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="글로벌 자동차 기업 리포트" class="menu-link"><span>글로벌 자동차 기업 리포트</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="모빌리티(UAM) 산업 발전 방향" class="menu-link"><span>모빌리티(UAM) 산업 발전 방향</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        모빌리티 리뷰
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="국내외 자동차 역사 요약" class="menu-link"><span>국내외 자동차 역사 요약</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Account 10 -> User 4's Account 2 -->
+            <div class="sidebar-group" style="margin-bottom: 1.5rem;">
+                <div class="sidebar-group-title collapsed" style="cursor:pointer; font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; padding-left: 0.2rem; display: flex; align-items: center; gap: 0.5rem;" data-filter="account-10">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    lljm2003
+                    <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div class="category-tree collapsed">
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        인테리어 트렌드
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="미드센추리 모던 인테리어 분석" class="menu-link"><span>미드센추리 모던 인테리어 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="1인 가구 공간 활용 팁" class="menu-link"><span>1인 가구 공간 활용 팁</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="친환경(Eco-friendly) 자재 트렌드" class="menu-link"><span>친환경(Eco-friendly) 자재 트렌드</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        셀프 시공 & 정보
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="도배 및 장판 재질별 장단점" class="menu-link"><span>도배 및 장판 재질별 장단점</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="인테리어 조명 색온도 선택 가이드" class="menu-link"><span>인테리어 조명 색온도 선택 가이드</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="셀프 페인팅 도구 및 기본 원리" class="menu-link"><span>셀프 페인팅 도구 및 기본 원리</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        스마트홈 & 리빙
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="홈IoT 구축을 위한 규격 분석" class="menu-link"><span>홈IoT 구축을 위한 규격 분석</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="로봇청소기 맵핑 알고리즘" class="menu-link"><span>로봇청소기 맵핑 알고리즘</span> <span class="cat-count">0</span></a></li>
+                        <li><a href="#" data-filter="미니멀리즘 실천 수납의 기술" class="menu-link"><span>미니멀리즘 실천 수납의 기술</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                    <div style="padding-left: 1.0rem; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; margin-top: 1.0rem; display: flex; align-items: center; gap: 0.4rem; opacity: 0.85;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        인테리어 도서
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-left: 1.2rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                        <li><a href="#" data-filter="유명 디자이너 철학 도서 요약" class="menu-link"><span>유명 디자이너 철학 도서 요약</span> <span class="cat-count">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
 
     </aside>
 
     <!-- Main Wrapper -->
     <main class="main-wrapper">
-        <div class="dashboard-content">
+        
+            <!-- Intro Screen -->
+            <div id="intro-screen" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem;">
+                <div style="margin-bottom: 3rem;">
+                    <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; letter-spacing: -0.05em;">SNS <span style="color:var(--primary);">x</span> AI 자동 블로그 워크스페이스</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-muted);">작업을 진행할 담당 유저를 선택하시면, 해당 워크스페이스로 즉시 진입합니다.</p>
+                </div>
+                
+                <div class="intro-cards-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 800px; width: 100%;">
+                    
+                    <div class="intro-user-card" onclick="selectUserAndEnter('1', '조찬기')">
+                        <div class="card-icon" style="background: rgba(99, 102, 241, 0.1); color: var(--primary);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div class="card-info">
+                            <h3>조찬기</h3>
+                            <p>계정 1개 <span>·</span> IT / 테크</p>
+                        </div>
+                        <div class="card-action">접속하기 &rarr;</div>
+                    </div>
+
+                    <div class="intro-user-card" onclick="selectUserAndEnter('2', '조민숙')">
+                        <div class="card-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div class="card-info">
+                            <h3>조민숙</h3>
+                            <p>계정 3개 <span>·</span> 건강 / 여행 / 푸드</p>
+                        </div>
+                        <div class="card-action">접속하기 &rarr;</div>
+                    </div>
+
+                    <div class="intro-user-card" onclick="selectUserAndEnter('3', '최미자')">
+                        <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div class="card-info">
+                            <h3>최미자</h3>
+                            <p>계정 2개 <span>·</span> 일상 / 에듀테크</p>
+                        </div>
+                        <div class="card-action">접속하기 &rarr;</div>
+                    </div>
+
+                    <div class="intro-user-card" onclick="selectUserAndEnter('4', '이재문')">
+                        <div class="card-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div class="card-info">
+                            <h3>이재문</h3>
+                            <p>계정 2개 <span>·</span> 자동차 / 인테리어</p>
+                        </div>
+                        <div class="card-action">접속하기 &rarr;</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="dashboard-content" style="display:none;">
             
             <div class="page-header">
                 <div>
@@ -167,10 +605,9 @@
                     <thead>
                         <tr>
                             <th style="width: 12%; display: none;">상태</th>
-                            <th style="width: 17%;">카테고리 (계정)</th>
-                            <th style="width: 38%;">포스팅 제목</th>
+                            <th style="width: 60%;">포스팅 제목</th>
                             <th style="width: 20%;">타겟 키워드</th>
-                            <th style="width: 13%;">생성일</th>
+                            <th style="width: 20%;">생성일</th>
                         </tr>
                     </thead>
                     <tbody id="drafts-tbody">
@@ -310,14 +747,14 @@
                 </p>
                 <textarea class="prompt-textarea" id="category-audit-prompt-textarea" style="height: 400px; border-color:#8b5cf6;">System Role: 너는 월 수익 1천만 원 이상을 내는 탑티어 블로그/SNS 콘텐츠 기획자이자 카테고리 감시자(QA)야.
 
-내가 새롭게 추가하려는 [계정 주제]와 그 하위 [5개 카테고리] 기획안을 읽고, 아래의 [카테고리 기획 감시 기준 4가지]를 통과했는지 100점 만점으로 채점하고 보완점을 지시해 줘.
+내가 새롭게 추가하려는 [계정 주제]와 그 하위 [5개 카테고리] 기획안을 읽고, 아래의 [카테고리 기획 감시 기준 5가지]를 통과했는지 100점 만점으로 채점하고 보완점을 지시해 줘.
 
-[카테고리 기획 감시 기준 4가지]
+[카테고리 기획 감시 기준 5가지]
 1. 수익 모델 직결성 (30점): 협찬이나 광고(CPA, 애드센스 등)가 바로 붙을 수 있는 명확한 수익화 카테고리가 포함되어 있는가?
-2. 타겟의 뾰족함 (30점): 너무 넓은 대분류가 아니라 롱테일 키워드와 구체적인 페인포인트(Pain point)를 겨냥한 카테고리인가?
+2. 타겟의 뾰족함 (20점): 너무 넓은 대분류가 아니라 롱테일 키워드와 구체적인 페인포인트(Pain point)를 겨냥한 카테고리인가?
 3. 무한한 확장성 (20점): 글을 10개만 쓰면 소재가 고갈되지 않고, 매주 새로운 소재를 무한히 발굴할 수 있는 확장 가능한 카테고리가 있는가?
-4. 전문성과 체류시간 방어 (20점): 너무 자극적인 글만 있지 않고, 계정의 전문성을 높이고 체류시간을 방어할 수 있는 '월별 추천도서' 같은 앵커(Anchor) 카테고리가 5번째에 배치되었는가?
-
+4. 전문성과 체류시간 방어 (30점): 너무 자극적인 글만 있지 않고, 계정의 전문성을 높이고 체류시간을 방어할 수 있는 '월별 추천도서' 같은 앵커(Anchor) 카테고리가 5번째에 배치되었는가?
+5. AI 작성 가능성 (감점 0점 처리): AI가 원고를 작성하므로 사람이 직접 겪어야 하는 '실사용 리뷰', '내돈내산', '맛집 방문기' 같은 경험 기반 카테고리는 지양하고, AI가 탐색/취합하여 고품질로 작성할 수 있는 '스펙 비교', '산업 트렌드', '역사/원리', '칼럼 번역/요약' 등의 정보성 카테고리로 구성되었는가? 위반 시 전면 재기획을 지시할 것.
 [출력 양식]
 - 총점: OO 점
 - 감시 결과 요약: (통과 / 전면 재기획 요망)

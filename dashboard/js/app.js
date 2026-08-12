@@ -4,6 +4,17 @@ let state = {
     currentFilter: 'all' 
 };
 
+function getDisplayAccountName(originalName) {
+    if (originalName.includes('계정 4')) return '건강 / 운동 (a50366)';
+    if (originalName.includes('계정 5')) return '여행 / 라이프스타일 (attii)';
+    if (originalName.includes('계정 6')) return '푸드 / 요리 (c50366)';
+    if (originalName.includes('계정 7')) return '블로그 (b50366)';
+    if (originalName.includes('계정 1')) return 'IT / 테크 (suda7)';
+    if (originalName.includes('계정 2')) return '경제 / 재테크 (tlskfldhwkrrk)';
+    if (originalName.includes('계정 3')) return '자기계발 (suda9)';
+    return originalName;
+}
+
 // 1. 글로벌 파일 데이터 로드 (window.draftData)
 function loadData() {
     if (window.draftData) {
@@ -13,7 +24,7 @@ function loadData() {
     
     // 로컬 스토리지는 완전히 버립니다. (새로고침하면 항상 물리 파일 데이터만 렌더링)
     updateCategoryCounts();
-    renderList();
+    // renderList();
 }
 
 // 2. 카테고리 실시간 카운트 동기화
@@ -42,7 +53,6 @@ function renderList() {
     tbody.innerHTML = ''; 
 
     const filteredDrafts = state.drafts.filter(draft => {
-        if (state.currentFilter === 'all') return true;
         if (state.currentFilter.startsWith('account-')) {
             const accNum = state.currentFilter.split('-')[1];
             return draft.account.includes(`계정 ${accNum}`);
@@ -51,16 +61,29 @@ function renderList() {
     });
 
     const pageTitle = document.getElementById('main-page-title');
-    let titleText = '전체 원고 대기열';
-    if (state.currentFilter !== 'all') {
-        if (state.currentFilter.startsWith('account-')) {
-            const accNum = state.currentFilter.split('-')[1];
-            titleText = `계정 ${accNum} 원고 전체보기`;
+    let titleText = '';
+    if (state.currentFilter.startsWith('account-')) {
+        const accNum = parseInt(state.currentFilter.split('-')[1], 10);
+        const map = {
+            1: "유저 1 : 조찬기 > IT / 테크 (suda7) 원고 전체보기",
+            2: "유저 1 : 조찬기 > 경제 / 재테크 (tlskfldhwkrrk) 원고 전체보기",
+            3: "유저 1 : 조찬기 > 자기계발 (suda9) 원고 전체보기",
+            4: "유저 2 : 조민숙 > 건강 / 운동 (a50366) 원고 전체보기",
+            5: "유저 2 : 조민숙 > 여행 / 라이프스타일 (attii) 원고 전체보기",
+            6: "유저 2 : 조민숙 > 푸드 / 요리 (c50366) 원고 전체보기",
+            7: "유저 3 : 최미자 > 블로그 (b50366) 원고 전체보기"
+        };
+        pageTitle.innerHTML = map[accNum] || `계정 ${accNum} 원고 전체보기`;
+    } else {
+        const menuLink = document.querySelector(`.menu-link[data-filter="${state.currentFilter}"]`);
+        if (menuLink) {
+            const middleCategory = menuLink.closest('ul').previousElementSibling.textContent.trim();
+            const accountTitle = menuLink.closest('.sidebar-group').querySelector('.sidebar-group-title').textContent.trim();
+            pageTitle.innerHTML = `<span style="display:block; font-size:1rem; color:var(--primary); font-weight:700; letter-spacing:0; margin-bottom:0.4rem; opacity:0.9;">${accountTitle} <span style="color:var(--text-muted); font-weight:600;">></span> ${middleCategory}</span>${state.currentFilter}`;
         } else {
-            titleText = state.currentFilter;
+            pageTitle.innerHTML = state.currentFilter;
         }
     }
-    pageTitle.innerText = titleText;
     
     const pageDesc = document.querySelector('.page-header p');
     pageDesc.innerText = `현재 조건에 맞는 원고가 총 ${filteredDrafts.length}건 대기 중입니다.`;
@@ -68,7 +91,7 @@ function renderList() {
     // 새 원고 생성 버튼 동적 렌더링
     const actionContainer = document.getElementById('header-action-container');
     if (actionContainer) {
-        if (state.currentFilter === 'all' || state.currentFilter.startsWith('account-')) {
+        if (state.currentFilter.startsWith('account-')) {
             // 드롭다운 모드
             let dropdownHtml = `
                 <div style="position:relative; display:inline-block;">
@@ -104,16 +127,14 @@ function renderList() {
         const tr = document.createElement('tr');
         tr.onclick = () => openContentModal(draft.id);
         
-        let shortAccount = draft.account.split('(')[0].replace('👤', '').trim();
-        
         tr.innerHTML = `
             <td style="display:none;"><span class="status-badge">${draft.status}</span></td>
-            <td class="col-category">${shortAccount}<br><span style="font-size:0.8rem;">${draft.category}</span></td>
-            <td class="col-title">${draft.title}</td>
+            <td class="col-title" style="padding-left: 1rem;">${draft.title}</td>
             <td class="col-keywords">${draft.keywords}</td>
             <td style="color:var(--text-muted); font-size:0.85rem;">${draft.date}</td>
         `;
         tbody.appendChild(tr);
+
     });
 
     updateCategoryCounts();
@@ -121,7 +142,7 @@ function renderList() {
 
 // 4. 필터(사이드바) 이벤트 바인딩
 function setupFilters() {
-    const filterLinks = document.querySelectorAll('.category-tree a, .sidebar-group-title, [data-filter="all"]');
+    const filterLinks = document.querySelectorAll('.category-tree a, .sidebar-group-title');
     
     filterLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -150,9 +171,10 @@ function setupFilters() {
                     tree.classList.add('collapsed');
                     link.classList.add('collapsed');
                 }
+                return;
             }
 
-            document.querySelectorAll('.category-tree a, [data-filter="all"]').forEach(a => a.classList.remove('active'));
+            document.querySelectorAll('.category-tree a').forEach(a => a.classList.remove('active'));
             if (link.tagName === 'A') {
                 link.classList.add('active');
             }
@@ -160,12 +182,94 @@ function setupFilters() {
             const filterValue = link.getAttribute('data-filter');
             if (filterValue) {
                 state.currentFilter = filterValue;
+                
+                // 인트로 화면이 열려있다면 숨기고 대시보드 표시
+                const introScreen = document.getElementById('intro-screen');
+                const dashboardContent = document.querySelector('.dashboard-content');
+                if (introScreen) introScreen.style.display = 'none';
+                if (dashboardContent) dashboardContent.style.display = 'block';
+                
                 renderList();
             }
         });
     });
 }
 
+// 4.5. 유저 셀렉트 박스 이벤트 바인딩
+function setupUserSelect() {
+    const dropdownBtn = document.getElementById('custom-user-dropdown-btn');
+    const dropdownMenu = document.getElementById('custom-user-dropdown-menu');
+    const dropdownText = document.getElementById('custom-user-dropdown-text');
+    const options = document.querySelectorAll('.custom-user-option');
+
+    if (!dropdownBtn || !dropdownMenu) return;
+
+    // 토글 동작
+    dropdownBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentText = dropdownText.innerText.trim();
+        options.forEach(opt => {
+            if (opt.innerText.trim() === currentText) {
+                opt.style.display = 'none';
+            } else {
+                opt.style.display = 'flex';
+            }
+        });
+        const isVisible = dropdownMenu.style.display === 'block';
+        dropdownMenu.style.display = isVisible ? 'none' : 'block';
+    });
+
+    // 외부 영역 클릭 시 닫힘
+    document.addEventListener('click', (e) => {
+        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.style.display = 'none';
+        }
+    });
+
+    // 옵션 선택 동작
+    options.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.preventDefault();
+            const selectedUser = option.getAttribute('data-value');
+            const selectedText = option.innerText;
+            
+            // 텍스트 업데이트 및 닫기
+            dropdownText.innerText = selectedText;
+            dropdownMenu.style.display = 'none';
+            
+            // 모든 유저 그룹 숨김
+            document.querySelectorAll('.user-group').forEach(group => {
+                group.style.display = 'none';
+            });
+            
+            // 선택된 유저 그룹 노출
+            const targetGroup = document.getElementById(`user-group-${selectedUser}`);
+            if (targetGroup) {
+                targetGroup.style.display = 'block';
+                
+                // 첫 번째 계정 자동 선택
+                const firstAccountTitle = targetGroup.querySelector('.sidebar-group-title');
+                if (firstAccountTitle) {
+                    if (firstAccountTitle.classList.contains('collapsed')) {
+                        firstAccountTitle.click();
+                    } else {
+                        const filterValue = firstAccountTitle.getAttribute('data-filter');
+                        if (filterValue) {
+                            state.currentFilter = filterValue;
+                            document.querySelectorAll('.category-tree a').forEach(a => a.classList.remove('active'));
+                            renderList();
+                        }
+                    }
+                } else {
+                    // 계정이 없는 유저(대기)의 경우 빈화면 처리를 위해 존재하지 않는 필터값 적용
+                    state.currentFilter = 'none';
+                    document.querySelectorAll('.category-tree a').forEach(a => a.classList.remove('active'));
+                    renderList();
+                }
+            }
+        });
+    });
+}
 // 5. 모달 제어 로직
 const contentModal = document.getElementById('content-modal');
 const promptModal = document.getElementById('prompt-modal');
@@ -184,7 +288,8 @@ window.openContentModal = function(draftId) {
     const draft = state.drafts.find(d => d.id === draftId);
     if(!draft) return;
 
-    const cleanAccount = draft.account.replace(/^[^\w가-힣]+/, '').trim(); // Remove leading emojis
+    let cleanAccount = draft.account.replace(/^[^\w가-힣]+/, '').trim(); // Remove leading emojis
+    cleanAccount = getDisplayAccountName(cleanAccount);
     const folderIcon = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>`;
     const userIcon = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>`;
     const keyIcon = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>`;
@@ -332,7 +437,14 @@ window.onload = () => {
     });
 
     setupFilters();
+    setupUserSelect();
     loadData(); // 물리 파일 로드 
+    
+    // 초기 구동 시 첫 번째 유저의 첫 번째 계정을 기본값으로 노출
+    const firstOption = document.querySelector('.custom-user-option[data-value="1"]');
+    if (firstOption) {
+        firstOption.click();
+    }
 };
 
 const trainingModal = document.getElementById('training-modal');
@@ -354,5 +466,54 @@ window.deleteCurrentDraft = function() {
         
         closeContentModal();
         if(vibeModal) vibeModal.classList.add('show');
+    }
+}
+
+function selectUserAndEnter(userId, userName) {
+    // Update Dropdown UI
+    document.getElementById('custom-user-dropdown-text').textContent = userName;
+    document.getElementById('custom-user-dropdown-menu').style.display = 'none';
+    
+    // Hide all users in dropdown to show active one visually? Actually let's just use CSS or standard logic.
+    document.querySelectorAll('.custom-user-option').forEach(o => {
+        if(o.getAttribute('data-value') === userId) o.style.display = 'none';
+        else o.style.display = 'flex';
+    });
+    
+    // Switch UI from Intro to Dashboard
+    const introScreen = document.getElementById('intro-screen');
+    const dashboardContent = document.querySelector('.dashboard-content');
+    if (introScreen) introScreen.style.display = 'none';
+    if (dashboardContent) dashboardContent.style.display = 'block';
+
+    // Set State
+    state.currentUser = userId;
+    
+    // Show correct sidebar group
+    document.querySelectorAll('.user-group').forEach(group => {
+        group.style.display = 'none';
+    });
+    const targetGroup = document.getElementById(`user-group-${userId}`);
+    if (targetGroup) {
+        targetGroup.style.display = 'block';
+        
+        // Find the FIRST menu-link inside this user's sidebar
+        const firstMenuLink = targetGroup.querySelector('.menu-link');
+        if (firstMenuLink) {
+            // Programmatically click it to trigger filter and load table
+            firstMenuLink.click();
+            
+            // Expand its accordion parent just in case
+            const tree = firstMenuLink.closest('.category-tree');
+            if (tree) tree.classList.remove('collapsed');
+            const title = firstMenuLink.closest('.sidebar-group').querySelector('.sidebar-group-title');
+            if (title) title.classList.remove('collapsed');
+        } else {
+            // Fallback if no menu
+            state.currentFilter = 'all';
+            document.getElementById('main-page-title').textContent = '전체 원고 대기열';
+            document.querySelectorAll('.menu-link, .sidebar-group-title').forEach(link => link.classList.remove('active'));
+            renderList();
+        }
     }
 }
