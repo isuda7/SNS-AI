@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS x AI | Portal</title>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --surface: #1e293b;
+            --primary: #6366f1;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Subtle background glow */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0) 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .portal-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            z-index: 1;
+        }
+
+        .portal-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .portal-title span {
+            color: var(--primary);
+        }
+
+        .portal-desc {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .portal-cards {
+            display: flex;
+            gap: 2rem;
+            z-index: 1;
+            max-width: 1000px;
+            width: 90%;
+            padding: 0 1rem;
+        }
+
+        .portal-card {
+            flex: 1;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .portal-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .portal-header { animation: fadeUp 0.8s ease forwards; }
+        .portal-card:nth-child(1) { animation: fadeUp 0.8s ease 0.2s forwards; opacity: 0; }
+        .portal-card:nth-child(2) { animation: fadeUp 0.8s ease 0.4s forwards; opacity: 0; }
+
+        @media (max-width: 768px) {
+            .portal-cards {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portal-header">
+        <h1 class="portal-title">SNS <span>x</span> AI</h1>
+        <p class="portal-desc">어느 작업실로 입장하시겠습니까?</p>
+    </div>
+
+    <div class="portal-cards">
+        <!-- Marketing Site -->
+        <a href="marketing/index.html" class="portal-card">
+            <span class="card-icon">📢</span>
+            <h2 class="card-title">마케팅 (Marketing)</h2>
+            <p class="card-desc">SNS 수익화 모델과 채널별 커리큘럼 가이드가 포함된 외부 노출용 웹사이트입니다.</p>
+        </a>
+
+        <!-- Dashboard Site -->
+        <a href="dashboard/index.html" class="portal-card">
+            <span class="card-icon">🤖</span>
+            <h2 class="card-title">대시보드 (Dashboard)</h2>
+            <p class="card-desc">AI가 생성한 원고 대기열을 확인하고 관리하는 나만의 실무 전용 공간입니다.</p>
+        </a>
+    </div>
+
+</body>
+</html>
