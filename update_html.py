@@ -1,13 +1,31 @@
-import os
+import re
+import glob
 
-file_path = "/Users/jochangi/Desktop/Workspaces/My/SNS-AI/dashboard/index.html"
-with open(file_path, "r", encoding="utf-8") as f:
-    content = f.read()
+# Add 'reveal' class to specific elements in HTML files
+files = glob.glob("/Users/jochangi/Desktop/Workspaces/My/SNS-AI/marketing/*.html")
 
-# Remove the script inclusion
-content = content.replace('<script src="js/data.js"></script>', '<!-- <script src="js/data.js"></script> Replaced by dynamic JSON fetching -->')
+for filepath in files:
+    with open(filepath, "r", encoding="utf-8") as f:
+        content = f.read()
 
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(content)
+    # Add reveal to section-title and section-desc
+    content = re.sub(r'class="section-title([^"]*)"', r'class="section-title reveal\1"', content)
+    content = re.sub(r'class="section-desc([^"]*)"', r'class="section-desc reveal\1"', content)
 
-print("index.html updated.")
+    # Add reveal to model-cards
+    content = re.sub(r'class="model-card([^"]*)"', r'class="model-card reveal\1"', content)
+
+    # Add reveal to timeline-items
+    content = re.sub(r'class="timeline-item([^"]*)"', r'class="timeline-item reveal\1"', content)
+
+    # Add reveal to channel sections
+    content = re.sub(r'class="channel-content([^"]*)"', r'class="channel-content reveal\1"', content)
+    content = re.sub(r'class="channel-visual([^"]*)"', r'class="channel-visual reveal\1"', content)
+    
+    # Add reveal to accordion items
+    content = re.sub(r'class="accordion-item([^"]*)"', r'class="accordion-item reveal\1"', content)
+
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(content)
+
+print("Added reveal animations to HTML files.")
