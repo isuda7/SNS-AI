@@ -16,10 +16,10 @@
         
         <!-- DB 부재로 인한 임시 숨김 처리 (추후 필요시 주석 해제)
         <div class="topbar-nav">
-            <a href="#" class="active">📝 원고 대기열</a>
-            <a href="#">✅ 발행 완료</a>
-            <a href="#">📊 성과 통계</a>
-            <a href="#">⚙️ 블로그 설정</a>
+            <a href="#" class="active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> 원고 대기열</a>
+            <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> 발행 완료</a>
+            <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> 성과 통계</a>
+            <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> 블로그 설정</a>
         </div>
         -->
         <div class="topbar-nav" style="display:none;"></div>
@@ -45,12 +45,15 @@
     <aside class="sidebar" style="overflow-y: auto;">
         
         <div style="margin-bottom: 1rem;">
-            <a href="#" class="active" data-filter="all" style="color:var(--text-main); font-weight:bold; text-decoration:none;">📂 전체 원고 보기</a>
+            <a href="#" class="active" data-filter="all" style="color:var(--text-main); font-weight:bold; text-decoration:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> 전체 원고 보기</a>
         </div>
 
         <!-- Account 1: IT/Tech -->
         <div class="sidebar-group">
-            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-1">👤 계정 1 (IT / 테크)</div>
+            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                계정 1 (IT / 테크)
+            <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
             <ul class="category-tree">
                 <li><a href="#" data-filter="전자기기 실사용 리뷰"><span>전자기기 실사용 리뷰</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="AI 툴 & 생산성 앱"><span>AI 툴 & 생산성 앱</span> <span class="cat-count">0</span></a></li>
@@ -62,7 +65,10 @@
 
         <!-- Account 2: Finance -->
         <div class="sidebar-group">
-            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-2">👤 계정 2 (경제 / 재테크)</div>
+            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                계정 2 (경제 / 재테크)
+            <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
             <ul class="category-tree">
                 <li><a href="#" data-filter="청년 정책 & 지원금"><span>청년 정책 & 지원금</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="짠테크 & 소액 투자"><span>짠테크 & 소액 투자</span> <span class="cat-count">0</span></a></li>
@@ -74,7 +80,10 @@
 
         <!-- Account 3: Self-Improvement -->
         <div class="sidebar-group">
-            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-3">👤 계정 3 (자기계발)</div>
+            <div class="sidebar-group-title" style="cursor:pointer;" data-filter="account-3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                계정 3 (자기계발)
+            <svg class="accordion-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto; transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
             <ul class="category-tree">
                 <li><a href="#" data-filter="동기부여 & 독서 기록"><span>동기부여 & 독서 기록</span> <span class="cat-count">0</span></a></li>
                 <li><a href="#" data-filter="방구석 부업 파이프라인"><span>방구석 부업 파이프라인</span> <span class="cat-count">0</span></a></li>
@@ -103,7 +112,7 @@
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th style="width: 12%;">상태</th>
+                            <th style="width: 12%; display: none;">상태</th>
                             <th style="width: 17%;">카테고리 (계정)</th>
                             <th style="width: 38%;">포스팅 제목</th>
                             <th style="width: 20%;">타겟 키워드</th>
@@ -124,7 +133,7 @@
         <div class="full-modal-content" style="width: 1024px; max-width: 95%; height: 90vh; display: flex; flex-direction: column; overflow: hidden; padding: 0; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
             <div class="modal-header" style="border-bottom: 1px solid var(--border); background: var(--card-bg); z-index: 10; position: sticky; top: 0; padding: 1.5rem 2rem;">
                 <div class="modal-title-area" style="flex:1;">
-                    <div class="status-badge" style="margin-bottom:0.8rem; display:inline-block;" id="modal-status">대기 중</div>
+                    <div class="status-badge" style="margin-bottom:0.8rem; display:none;" id="modal-status">대기 중</div>
                     <h2 id="modal-title">포스팅 제목</h2>
                     <div class="modal-meta" style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem; color: #666; font-size: 0.95rem;">
                         <span id="modal-category"></span>
@@ -162,7 +171,7 @@
     <div class="full-modal-overlay" id="prompt-modal">
         <div class="full-modal-content" style="width: 800px; height: auto; max-height: 90%;">
             <div class="modal-header" style="padding: 1.5rem 2rem;">
-                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;">🧠 대시보드 코어 기획 프롬프트</h2>
+                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg> 대시보드 코어 기획 프롬프트</h2>
                 <button class="btn-close" onclick="closePromptModal()">&times;</button>
             </div>
             
@@ -190,7 +199,7 @@
             
             <div class="modal-footer" style="padding: 1.5rem 2rem;">
                 <button class="btn btn-secondary" onclick="closePromptModal()">취소</button>
-                <button class="btn btn-primary" onclick="copyModalContent('master-prompt-textarea', this, true)">📝 프롬프트 복사 및 적용</button>
+                <button class="btn btn-primary" onclick="copyModalContent('master-prompt-textarea', this, true)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> 프롬프트 복사 및 적용</button>
             </div>
         </div>
     </div>
@@ -199,7 +208,7 @@
     <div class="full-modal-overlay" id="audit-modal">
         <div class="full-modal-content" style="width: 800px; height: auto; max-height: 90%;">
             <div class="modal-header" style="padding: 1.5rem 2rem;">
-                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;">🔍 대시보드 품질 감시(Audit) 프롬프트</h2>
+                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> 대시보드 품질 감시(Audit) 프롬프트</h2>
                 <button class="btn-close" onclick="closeAuditModal()">&times;</button>
             </div>
             
@@ -226,7 +235,7 @@
             
             <div class="modal-footer" style="padding: 1.5rem 2rem;">
                 <button class="btn btn-secondary" onclick="closeAuditModal()">취소</button>
-                <button class="btn btn-primary" onclick="copyModalContent('audit-prompt-textarea', this, true)" style="background:var(--success);">🔍 감시 프롬프트 복사</button>
+                <button class="btn btn-primary" onclick="copyModalContent('audit-prompt-textarea', this, true)" style="background:var(--success);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> 감시 프롬프트 복사</button>
             </div>
         </div>
     </div>
@@ -235,7 +244,7 @@
     <div class="full-modal-overlay" id="vibe-modal">
         <div class="full-modal-content" style="width: 600px; height: auto; max-height: 90%;">
             <div class="modal-header" style="padding: 1.5rem 2rem;">
-                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;" id="vibe-modal-title">🤖 바이브 코딩 지시어</h2>
+                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;" id="vibe-modal-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg> 바이브 코딩 지시어</h2>
                 <button class="btn-close" onclick="closeVibeModal()">&times;</button>
             </div>
             
@@ -257,7 +266,7 @@
     <div class="full-modal-overlay" id="training-modal">
         <div class="full-modal-content" style="width: 700px; height: auto; max-height: 90%;">
             <div class="modal-header" style="padding: 1.5rem 2rem;">
-                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;">⚙️ 환경 셋업용 AI 학습 프롬프트</h2>
+                <h2 style="font-size: 1.5rem; display:flex; align-items:center; gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> 환경 셋업용 AI 학습 프롬프트</h2>
                 <button class="btn-close" onclick="closeTrainingModal()">&times;</button>
             </div>
             
@@ -292,7 +301,7 @@
     </div>
 
     <!-- Toast -->
-    <div id="toast" class="toast">클립보드에 복사되었습니다! 🎉</div>
+    <div id="toast" class="toast">클립보드에 복사되었습니다! <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
 
     <!-- Scripts -->
     <script src="data/account3/방구석_부업_파이프라인.js"></script>

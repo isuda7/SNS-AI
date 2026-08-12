@@ -98,7 +98,7 @@ function renderList() {
         let shortAccount = draft.account.split('(')[0].replace('👤', '').trim();
         
         tr.innerHTML = `
-            <td><span class="status-badge">${draft.status}</span></td>
+            <td style="display:none;"><span class="status-badge">${draft.status}</span></td>
             <td class="col-category">${shortAccount}<br><span style="font-size:0.8rem;">${draft.category}</span></td>
             <td class="col-title">${draft.title}</td>
             <td class="col-keywords">${draft.keywords}</td>
@@ -118,10 +118,33 @@ function setupFilters() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             
+            // Accordion Logic for Sidebar Group Titles
+            if (link.classList.contains('sidebar-group-title')) {
+                const parentGroup = link.closest('.sidebar-group');
+                const tree = parentGroup.querySelector('.category-tree');
+                
+                // Toggle current accordion
+                const isCollapsed = tree.classList.contains('collapsed');
+                
+                // Optional: Close all others
+                document.querySelectorAll('.sidebar-group').forEach(group => {
+                    if(group !== parentGroup) {
+                        group.querySelector('.category-tree')?.classList.add('collapsed');
+                        group.querySelector('.sidebar-group-title')?.classList.add('collapsed');
+                    }
+                });
+
+                if (isCollapsed) {
+                    tree.classList.remove('collapsed');
+                    link.classList.remove('collapsed');
+                } else {
+                    tree.classList.add('collapsed');
+                    link.classList.add('collapsed');
+                }
+            }
+
             document.querySelectorAll('.category-tree a, [data-filter="all"]').forEach(a => a.classList.remove('active'));
             if (link.tagName === 'A') {
-                link.classList.add('active');
-            } else {
                 link.classList.add('active');
             }
 
