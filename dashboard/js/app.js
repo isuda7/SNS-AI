@@ -7,11 +7,14 @@ let state = {
 function getDisplayAccountName(originalName) {
     if (originalName.includes('계정 4')) return '건강 / 운동 (a50366)';
     if (originalName.includes('계정 5')) return '여행 / 라이프스타일 (attii)';
-    if (originalName.includes('계정 6')) return '푸드 / 요리 (c50366)';
+    if (originalName.includes('계정 6')) return '푸드 / 요리 (lljm2003)';
     if (originalName.includes('계정 7')) return '블로그 (b50366)';
     if (originalName.includes('계정 1')) return 'IT / 테크 (suda7)';
-    if (originalName.includes('계정 2')) return '경제 / 재테크 (tlskfldhwkrrk)';
-    if (originalName.includes('계정 3')) return '자기계발 (suda9)';
+    if (originalName.includes('계정 2')) return '경제 / 재테크 (isuda8)';
+    if (originalName.includes('계정 3')) return '자기계발 (isuda9)';
+    if (originalName.includes('계정 8')) return '어학 / 글로벌 (ms50366)';
+    if (originalName.includes('계정 9')) return '자동차 / 모빌리티 (dlwoans2)';
+    if (originalName.includes('계정 10')) return '리빙 / 인테리어 (c50366)';
     return originalName;
 }
 
@@ -66,12 +69,15 @@ function renderList() {
         const accNum = parseInt(state.currentFilter.split('-')[1], 10);
         const map = {
             1: "유저 1 : 조찬기 > IT / 테크 (suda7) 원고 전체보기",
-            2: "유저 1 : 조찬기 > 경제 / 재테크 (tlskfldhwkrrk) 원고 전체보기",
-            3: "유저 1 : 조찬기 > 자기계발 (suda9) 원고 전체보기",
+            2: "유저 1 : 조찬기 > 경제 / 재테크 (isuda8) 원고 전체보기",
+            3: "유저 1 : 조찬기 > 자기계발 (isuda9) 원고 전체보기",
             4: "유저 2 : 조민숙 > 건강 / 운동 (a50366) 원고 전체보기",
             5: "유저 2 : 조민숙 > 여행 / 라이프스타일 (attii) 원고 전체보기",
-            6: "유저 2 : 조민숙 > 푸드 / 요리 (c50366) 원고 전체보기",
-            7: "유저 3 : 최미자 > 블로그 (b50366) 원고 전체보기"
+            6: "유저 2 : 조민숙 > 푸드 / 요리 (lljm2003) 원고 전체보기",
+            7: "유저 3 : 최미자 > 블로그 (b50366) 원고 전체보기",
+            8: "유저 4 : 이재문 > 어학 / 글로벌 (ms50366) 원고 전체보기",
+            9: "유저 4 : 이재문 > 자동차 / 모빌리티 (dlwoans2) 원고 전체보기",
+            10: "유저 4 : 이재문 > 리빙 / 인테리어 (c50366) 원고 전체보기"
         };
         pageTitle.innerHTML = map[accNum] || `계정 ${accNum} 원고 전체보기`;
     } else {
@@ -297,7 +303,7 @@ window.openContentModal = function(draftId) {
 
     currentModalDraftId = draftId;
     modalTitle.innerText = draft.title;
-    modalCat.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.3rem;">${folderIcon} ${userIcon} ${cleanAccount} > ${draft.category}</span>`;
+    modalCat.style.display = 'none';
     modalKw.innerHTML = `<span style="display:inline-flex;align-items:center;gap:0.3rem;">${keyIcon} ${draft.keywords}</span>`;
     modalBody.innerHTML = draft.contentHtml;
     
@@ -362,30 +368,39 @@ window.generateNewAIDraft = function(forcedCategory) {
 2. 후킹(Hooking): 뻔하고 지루한 '교과서적 정보'는 절대 배제하고, "업자들만 아는 OO의 비밀", "당신이 OO하면 망하는 이유"처럼 무조건 클릭할 수밖에 없는 강력한 어그로 스킬을 사용할 것.
 3. 분량 및 이미지: 반드시 공백 제외 1,500자 이상으로 꽉 채워서 작성하고, 이미지는 원고 최상단에 딱 1장만 넣을 것.
 
-작성이 끝나면 해당 내용을 dashboard/data/ 폴더 하위에 있는 [해당 카테고리명.js] 파일을 찾아서, 기존 배열에 새로운 원고 객체(Object)를 추가(Append)하여 저장해 줘.`;
+작성이 끝나면 해당 내용을 dashboard/data/ 폴더 하위에 있는 [해당 카테고리명.js] 파일을 찾아서, 기존 배열에 새로운 원고 객체(Object)를 추가(Append)하여 저장해 줘.
+
+[데이터 객체 출력 양식]
+반드시 아래의 JSON 객체(Object) 형태로 데이터를 생성해야 해:
+{
+  "id": "draft-고유번호", // (예: 무작위 난수 또는 순차적 ID)
+  "status": "대기 중", // 기본값 고정
+  "account": "👤 계정명", // (예: 👤 계정 7 (블로그))
+  "category": "[카테고리명]", 
+  "title": "[어그로 끌리는 매력적인 제목]",
+  "keywords": "[키워드1, 키워드2, 키워드3]",
+  "date": "[생성 날짜 YYYY-MM-DD]",
+  "contentHtml": "[아래 '네이버 블로그 SmartEditor HTML 구조' 규칙에 맞춰 작성된 1,500자 이상의 본문 내용]"
+}
+
+[네이버 블로그 SmartEditor HTML 구조 규칙]
+원고 본문(contentHtml)을 작성할 때 반드시 아래의 실제 네이버 블로그 구조를 벤치마킹하여 똑같이 렌더링되도록 클래스와 태그를 적용해 줘.
+
+6. 본문 스타일 및 여백(Spacing) 특별 규칙:
+- 본문 기본: 폰트사이즈 16px
+- 본문 제목1: 폰트사이즈 30px, 굵게 (목차 아님)
+- 본문 제목2: 폰트사이즈 19px, 굵게 (목차 아님)
+- 본문 제목3: 폰트사이즈 16px, 굵게 (목차 아님)
+- 빈줄: <p>&ZeroWidthSpace;</p> 처럼 span이나 b 태그 없이 아주 단순하게 작성할 것 (불필요한 태그 절대 금지)
+- 제목 간 여백: 본문 제목2, 3이 시작하기 전에는 반드시 빈줄을 1개만 삽입할 것. (불필요한 연속 빈줄 금지)
+
+위에서 요구한 폰트 사이즈와 여백 등의 스타일 속성들을 인라인 스타일이나 클래스로 적절히 추가하여 가장 쾌적하게 읽히는 형태로 원고를 작성해 줘.`;
 
     document.getElementById('vibe-modal-title').innerHTML = '🤖 바이브 코딩 지시어 (원고 생성)';
     document.getElementById('vibe-prompt-textarea').value = promptText;
     vibeModal.classList.add('show');
 };
 
-// 원고 삭제 버튼 클릭 시 -> 팝업에 지시어 렌더링
-window.deleteCurrentDraft = function() {
-    if (!currentModalDraftId || !vibeModal) return;
-    
-    const draft = state.drafts.find(d => d.id === currentModalDraftId);
-    if(!draft) return;
-
-    const promptText = `AI야, 지금 내가 삭제하려는 원고의 ID는 [${currentModalDraftId}] 이고, 제목은 [${draft.title}] 이야. 
-이 원고가 들어있는 물리적 .js 파일을 dashboard/data/ 폴더 하위에서 찾아서 영구적으로 삭제(제거) 처리해 줘.`;
-
-    document.getElementById('vibe-modal-title').innerHTML = '🗑️ 바이브 코딩 지시어 (원고 삭제)';
-    document.getElementById('vibe-prompt-textarea').value = promptText;
-    vibeModal.classList.add('show');
-    
-    // 상세 모달은 닫아줌
-    closeContentModal();
-};
 
 // 일반 모달 열기 닫기
 window.openPromptModal = function() { promptModal.classList.add('show'); };
@@ -401,28 +416,137 @@ if(auditModal) auditModal.addEventListener('click', (e) => { if (e.target === au
 if(categoryAuditModal) categoryAuditModal.addEventListener('click', (e) => { if (e.target === categoryAuditModal) closeCategoryAuditModal(); });
 if(vibeModal) vibeModal.addEventListener('click', (e) => { if (e.target === vibeModal) closeVibeModal(); });
 
-window.copyModalContent = function(elementId, btnElement, isTextarea = false) {
-    let content = '';
-    if (isTextarea) {
-        content = document.getElementById(elementId).value;
-    } else {
-        content = document.getElementById(elementId).innerText; 
-    }
-    
-    navigator.clipboard.writeText(content).then(() => {
-        const originalText = btnElement.innerText;
-        btnElement.innerText = '✅ 복사 완료';
+window.copyModalContent = async function(elementId, btnElement, isTextarea = false) {
+    try {
+        if (isTextarea) {
+            const content = document.getElementById(elementId).value;
+            await navigator.clipboard.writeText(content);
+        } else {
+            const el = document.getElementById(elementId);
+            const textContent = el.innerText;
+            
+            // 클론 노드를 생성하여 인라인 스타일 강제 주입
+            const clone = el.cloneNode(true);
+            clone.style.fontSize = '16px';
+            clone.style.lineHeight = '1.8';
+            clone.style.color = '#333';
+            clone.style.fontFamily = '"Pretendard", -apple-system, sans-serif';
+            
+            // 붙여넣기 시 불필요한 <mark> 태그 생성을 방지하기 위해 모든 배경색 제거
+            clone.querySelectorAll('*').forEach(child => {
+                if (child.style.backgroundColor) {
+                    child.style.backgroundColor = '';
+                }
+            });
+            
+            clone.querySelectorAll('p').forEach(p => {
+                p.style.marginBottom = '1.2rem';
+                p.style.margin = '0 0 1.2rem 0';
+            });
+            clone.querySelectorAll('img').forEach(img => {
+                img.style.maxWidth = '100%';
+                img.style.height = 'auto';
+                img.style.borderRadius = '12px';
+                img.style.margin = '2rem 0';
+                img.style.display = 'block';
+            });
+            clone.querySelectorAll('ul, ol').forEach(list => {
+                list.style.marginLeft = '1.5rem';
+                list.style.marginBottom = '1.5rem';
+            });
+            clone.querySelectorAll('strong, b').forEach(strong => {
+                strong.style.fontWeight = '700';
+                strong.style.color = '#111';
+            });
+            
+            // 네이버 블로그 폰트 사이즈 클래스 인라인 스타일로 변환
+            clone.querySelectorAll('.se-fs-fs30').forEach(span => {
+                span.style.fontSize = '30px';
+                span.style.fontWeight = '800';
+                span.style.color = '#111';
+            });
+            clone.querySelectorAll('.se-fs-fs19').forEach(span => {
+                span.style.fontSize = '19px';
+                span.style.fontWeight = '700';
+                span.style.color = '#111';
+            });
+            clone.querySelectorAll('.se-fs-fs16').forEach(span => {
+                span.style.fontSize = '16px';
+            });
+            clone.querySelectorAll('.se-fs-fs15').forEach(span => {
+                span.style.fontSize = '15px';
+            });
+
+            clone.querySelectorAll('h2').forEach(h2 => {
+                h2.style.fontSize = '1.5rem';
+                h2.style.fontWeight = '800';
+                h2.style.marginTop = '2rem';
+                h2.style.marginBottom = '1rem';
+                h2.style.color = '#111';
+            });
+            clone.querySelectorAll('h3').forEach(h3 => {
+                h3.style.fontSize = '1.3rem';
+                h3.style.fontWeight = '700';
+                h3.style.marginTop = '1.5rem';
+                h3.style.marginBottom = '0.8rem';
+                h3.style.color = '#222';
+            });
+            clone.querySelectorAll('table').forEach(table => {
+                table.style.width = '100%';
+                table.style.borderCollapse = 'collapse';
+                table.style.marginBottom = '1.5rem';
+                table.style.border = '1px solid #ddd';
+            });
+            clone.querySelectorAll('th, td').forEach(cell => {
+                cell.style.padding = '10px';
+                cell.style.border = '1px solid #ddd';
+            });
+
+            // 가장 바깥쪽을 div로 감싸서 인라인 스타일을 전체 적용
+            const wrapper = document.createElement('div');
+            wrapper.style.fontSize = '16px';
+            wrapper.style.lineHeight = '1.8';
+            wrapper.style.color = '#333';
+            wrapper.style.fontFamily = '"Pretendard", -apple-system, sans-serif';
+            wrapper.innerHTML = clone.innerHTML;
+
+            const htmlContent = wrapper.outerHTML;
+            
+            if (navigator.clipboard && window.ClipboardItem) {
+                const data = [new ClipboardItem({
+                    "text/plain": new Blob([textContent], { type: "text/plain" }),
+                    "text/html": new Blob([htmlContent], { type: "text/html" })
+                })];
+                await navigator.clipboard.write(data);
+            } else {
+                // Fallback for older browsers
+                await navigator.clipboard.writeText(textContent);
+            }
+        }
+        
+        // 복사 성공 시 UI 피드백
+        const originalHTML = btnElement.innerHTML; // SVG 아이콘 보존을 위해 innerHTML 저장
+        btnElement.innerHTML = '✅ 복사 완료';
         btnElement.classList.add('copied');
         
         const toast = document.getElementById('toast');
-        toast.classList.add('show');
+        if (toast) toast.classList.add('show');
+        
+        // 자동 닫기 (복사 후 600ms 뒤 모달 닫기)
+        setTimeout(() => {
+            const modal = btnElement.closest('.full-modal-overlay') || btnElement.closest('.modal-overlay');
+            if (modal) modal.classList.remove('show');
+        }, 600);
         
         setTimeout(() => {
-            btnElement.innerText = originalText;
+            btnElement.innerHTML = originalHTML;
             btnElement.classList.remove('copied');
-            toast.classList.remove('show');
+            if (toast) toast.classList.remove('show');
         }, 3000);
-    });
+    } catch (err) {
+        console.error('Failed to copy: ', err);
+        alert('복사에 실패했습니다. 브라우저 권한을 확인해주세요.');
+    }
 };
 
 // 앱 구동
@@ -453,10 +577,10 @@ window.closeTrainingModal = function() { if(trainingModal) trainingModal.classLi
 if(trainingModal) trainingModal.addEventListener('click', (e) => { if (e.target === trainingModal) closeTrainingModal(); });
 
 window.deleteCurrentDraft = function() {
-    if(!window.currentModalDraftId) return;
+    if(!currentModalDraftId) return;
     
     // state.drafts에서 현재 열린 draft 찾기
-    const draft = state.drafts.find(d => d.id === window.currentModalDraftId);
+    const draft = state.drafts.find(d => d.id === currentModalDraftId);
     if(draft) {
         const promptText = `AI야, dashboard/data/ 폴더 하위에서 카테고리가 [${draft.category}]인 .js 파일을 찾아줘.
 그 안의 배열에서 id가 '${draft.id}'인 원고 객체를 찾아 완전히 삭제(Delete)해 줘.`;
@@ -467,7 +591,7 @@ window.deleteCurrentDraft = function() {
         closeContentModal();
         if(vibeModal) vibeModal.classList.add('show');
     }
-}
+};
 
 function selectUserAndEnter(userId, userName) {
     // Update Dropdown UI

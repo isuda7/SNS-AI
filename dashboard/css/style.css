@@ -400,30 +400,19 @@ p { line-height: 1.6; }
     background: var(--card-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     border-radius: 20px;
     border: 1px solid var(--border-light);
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-lg);
-    transform: scale(0.98);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .full-modal-overlay.show .full-modal-content {
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    width: 90%;
-    height: 90%;
-    border-radius: 20px;
-    border: 1px solid var(--border-light);
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-lg);
-    transform: scale(0.98);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
 }
 
 .modal-header {
@@ -487,7 +476,7 @@ p { line-height: 1.6; }
     margin-bottom: 1.5rem;
 }
 .modal-body p {
-    margin-bottom: 1.2rem;
+    margin: 0;
 }
 
 .modal-footer {
@@ -651,4 +640,22 @@ p { line-height: 1.6; }
 
 .intro-user-card:hover .card-action {
     transform: translateX(5px);
+}
+
+/* 네이버 블로그 스마트에디터 폰트 사이즈 클래스 (미리보기용) */
+.se-fs-fs30 {
+    font-size: 30px !important;
+    font-weight: 800;
+    color: #111;
+}
+.se-fs-fs19 {
+    font-size: 19px !important;
+    font-weight: 700;
+    color: #111;
+}
+.se-fs-fs16 {
+    font-size: 16px !important;
+}
+.se-fs-fs15 {
+    font-size: 15px !important;
 }
