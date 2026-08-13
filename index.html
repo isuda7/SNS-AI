@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNS x AI | Portal</title>
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <!-- Phosphor Icons CDN -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -48,7 +50,7 @@
 
         .portal-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             z-index: 1;
         }
 
@@ -69,10 +71,11 @@
         }
 
         .portal-cards {
-            display: flex;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
             z-index: 1;
-            max-width: 1000px;
+            max-width: 850px;
             width: 90%;
             padding: 0 1rem;
         }
@@ -81,8 +84,8 @@
             flex: 1;
             background: rgba(30, 41, 59, 0.6);
             border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 24px;
-            padding: 3rem;
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
             text-decoration: none;
             color: var(--text-main);
@@ -112,21 +115,21 @@
         }
 
         .card-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             display: inline-block;
         }
 
         .card-title {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .card-desc {
             color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Animations */
@@ -138,10 +141,12 @@
         .portal-header { animation: fadeUp 0.8s ease forwards; }
         .portal-card:nth-child(1) { animation: fadeUp 0.8s ease 0.2s forwards; opacity: 0; }
         .portal-card:nth-child(2) { animation: fadeUp 0.8s ease 0.4s forwards; opacity: 0; }
+        .portal-card:nth-child(3) { animation: fadeUp 0.8s ease 0.6s forwards; opacity: 0; }
+        .portal-card:nth-child(4) { animation: fadeUp 0.8s ease 0.8s forwards; opacity: 0; }
 
         @media (max-width: 768px) {
             .portal-cards {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -156,16 +161,30 @@
     <div class="portal-cards">
         <!-- Marketing Site -->
         <a href="marketing/index.html" class="portal-card">
-            <span class="card-icon">📢</span>
+            <span class="card-icon"><i class="ph ph-megaphone"></i></span>
             <h2 class="card-title">마케팅 (Marketing)</h2>
             <p class="card-desc">SNS 수익화 모델과 채널별 커리큘럼 가이드가 포함된 외부 노출용 웹사이트입니다.</p>
         </a>
 
         <!-- Dashboard Site -->
         <a href="dashboard/index.html" class="portal-card">
-            <span class="card-icon">🤖</span>
+            <span class="card-icon"><i class="ph ph-robot"></i></span>
             <h2 class="card-title">대시보드 (Dashboard)</h2>
             <p class="card-desc">AI가 생성한 원고 대기열을 확인하고 관리하는 나만의 실무 전용 공간입니다.</p>
+        </a>
+
+        <!-- Resource Site -->
+        <a href="resource/index.html" class="portal-card">
+            <span class="card-icon"><i class="ph-fill ph-database"></i></span>
+            <h2 class="card-title">자료실 (Resource)</h2>
+            <p class="card-desc">AI 프롬프트, 플랫폼 정보, 광고 사이트 등 유용한 데이터 리스트를 체계적으로 정리하고 관리하는 공간입니다.</p>
+        </a>
+
+        <!-- Mission Site -->
+        <a href="mission/index.html" class="portal-card">
+            <span class="card-icon"><i class="ph ph-target"></i></span>
+            <h2 class="card-title">미션 (Mission)</h2>
+            <p class="card-desc">일일 목표 달성, 프로젝트 진척도 확인 및 성과를 트래킹하는 챌린지 공간입니다.</p>
         </a>
     </div>
 

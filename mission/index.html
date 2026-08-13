@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS x AI | 미션</title>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #11001c;
+            --surface-mission: rgba(255, 255, 255, 0.03);
+            --accent-glow: #ec4899; /* Pink */
+            --accent-glow-secondary: #8b5cf6; /* Purple */
+            --text-light: #fdf2f8;
+            --text-muted: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1f0535 100%);
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient glow effect */
+        .ambient-glow {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.05) 40%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(40px);
+            animation: pulseGlow 8s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        .header {
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 10;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-light);
+            background: linear-gradient(to right, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .mission-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .mission-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: translateX(10px);
+            box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(236, 72, 153, 0.1);
+            border-color: rgba(236, 72, 153, 0.4);
+        }
+
+        .mission-info {
+            flex: 1;
+        }
+
+        .mission-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-daily {
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+        }
+
+        .badge-special {
+            background: rgba(236, 72, 153, 0.2);
+            color: #fbcfe8;
+            border: 1px solid rgba(236, 72, 153, 0.5);
+        }
+
+        .mission-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .action-btn {
+            margin-left: 2rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent-glow-secondary) 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5);
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .mission-card {
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .mission-card:nth-child(1) { animation-delay: 0.2s; }
+        .mission-card:nth-child(2) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <header class="header">
+        <a href="../index.html" class="logo">SNS x AI</a>
+        <a href="../index.html" class="back-link">← 포털로 돌아가기</a>
+    </header>
+
+    <main class="main-content">
+        <div class="mission-header">
+            <h1 class="page-title">오늘의 미션</h1>
+            <p class="page-subtitle">일일 목표를 달성하고 파이프라인 완성도를 높이세요.</p>
+        </div>
+
+        <div class="mission-list">
+            <!-- Mission 1 -->
+            <div class="mission-card">
+                <div class="mission-info">
+                    <span class="mission-badge badge-daily">일일 미션</span>
+                    <h2 class="mission-title">AI 블로그 원고 1건 검수 및 발행</h2>
+                    <p class="mission-desc">대시보드에서 대기 중인 원고 1건을 검수 기준에 맞춰 수정 후 발행하세요.</p>
+                </div>
+                <button class="action-btn">시작하기</button>
+            </div>
+
+            <!-- Mission 2 -->
+            <div class="mission-card">
+                <div class="mission-info">
+                    <span class="mission-badge badge-special">스페셜 미션</span>
+                    <h2 class="mission-title">신규 롱테일 키워드 5개 발굴</h2>
+                    <p class="mission-desc">수익화 직결성이 높은 롱테일 키워드를 발굴하여 기획안에 추가하세요.</p>
+                </div>
+                <button class="action-btn">시작하기</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
