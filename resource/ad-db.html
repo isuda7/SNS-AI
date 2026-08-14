@@ -202,27 +202,93 @@
 
         <!-- Dashboard Content -->
         
+        
         <div class="content">
             
     <style>
-        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
+        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 2rem; }
+        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
         .guide-p { font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 1rem; }
-        .guide-alert { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.2rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
-        .guide-alert.warning { background: #fef2f2; border-left-color: #ef4444; }
-        .guide-alert-title { font-weight: 700; color: #1e293b; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .guide-ul { margin: 1rem 0 1rem 1.5rem; color: #475569; line-height: 1.6; }
-        .guide-ul li { margin-bottom: 0.5rem; }
+        
+        .workflow-section { margin-top: 2.5rem; }
+        .workflow-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #1e293b; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; position: relative; }
+        
+        /* Connecting line */
+        .workflow-grid::before { content: ''; position: absolute; top: 3.5rem; left: 10%; right: 10%; height: 2px; background: #e2e8f0; z-index: 0; }
+        
+        @media (max-width: 1024px) {
+            .workflow-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+            .workflow-grid::before { display: none; }
+        }
+        @media (max-width: 640px) {
+            .workflow-grid { grid-template-columns: 1fr; }
+        }
+
+        .workflow-step { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.02); z-index: 1; transition: all 0.3s; }
+        .workflow-step:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1); }
+        .step-number { position: absolute; top: -15px; left: 1.5rem; width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .step-icon { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; display: inline-block; padding: 0.8rem; background: var(--primary-light); border-radius: 12px; }
+        .step-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem; }
+        .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        
+        .tip-box { background: linear-gradient(to right, #f8fafc, #eff6ff); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 12px 12px 0; margin-top: 2rem; }
+        .tip-title { font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
+        .tip-desc { font-size: 0.95rem; color: #475569; line-height: 1.6; }
     </style>
 
+            
             <div style="margin-bottom: 2rem;">
                 <h1 style="font-size: 1.8rem; color: #1e293b; margin-bottom: 0.5rem;">고단가 CPA / DB생성 수익화</h1>
                 <p style="color: #64748b; font-size: 1.05rem;">고객의 상담 신청이나 앱 설치만으로 큰 수익을 창출하는 플랫폼 가이드입니다.</p>
             </div>
-            <div class="guide-container"><h2 class="guide-h2"><i class="ph ph-phone-call" style="color:#3b82f6;"></i> 1. CPA 수익 구조 이해하기</h2><p class="guide-p">CPA(Cost Per Action)는 물건을 팔지 않아도 됩니다. 고객이 내 링크를 통해 <strong>무료 상담 신청, 앱 설치, 회원가입</strong>만 완료하면 건당 1~5만 원의 높은 수수료를 받습니다.</p><div class="guide-alert"><div class="guide-alert-title">대표 플랫폼</div><ul class="guide-ul"><li><strong>디비센스(DBsense):</strong> 보험, 대출, 개인회생 등 고단가 DB 특화</li><li><strong>텐핑(Tenping):</strong> 모바일 앱 설치 및 다이어트/미용 특화</li></ul></div></div>
+            
+            <div class="guide-container">
+                <h2 class="guide-h2"><i class="ph ph-phone-call" style="color:#3b82f6;"></i> CPA 수익 구조 튜토리얼</h2>
+                <p class="guide-p">CPA(Cost Per Action)는 물건을 직접 팔지 않아도 됩니다. 고객이 내 링크를 통해 <strong>무료 상담 신청, 앱 설치, 회원가입</strong>만 완료하면 건당 1~5만 원의 높은 수수료를 받습니다.</p>
+            </div>
+
+            <div class="workflow-section">
+                <h3 class="workflow-title"><i class="ph-fill ph-git-merge"></i> 한눈에 보는 워크플로우</h3>
+                <div class="workflow-grid">
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon"><i class="ph ph-identification-card"></i></div>
+                        <h4 class="step-title">1. 플랫폼 가입</h4>
+                        <p class="step-desc">디비센스, 텐핑 등 CPA 전문 플랫폼에 가입하여 활동 승인을 받습니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon"><i class="ph ph-target"></i></div>
+                        <h4 class="step-title">2. 고단가 캠페인 선정</h4>
+                        <p class="step-desc">보험, 대출, 자격증, 다이어트 등 내 채널 주제와 맞고 단가가 높은 캠페인을 고릅니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon"><i class="ph ph-pencil-line"></i></div>
+                        <h4 class="step-title">3. 페인포인트 자극 원고</h4>
+                        <p class="step-desc">AI를 활용해 타겟 고객의 불편함(Pain Point)을 찌르고 해결책으로 캠페인을 제시하는 글을 씁니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon"><i class="ph ph-link"></i></div>
+                        <h4 class="step-title">4. 링크 삽입 & DB 생성</h4>
+                        <p class="step-desc">발급받은 전용 링크를 글에 삽입합니다. 고객이 클릭 후 상담을 남기면 즉시 수익이 확정됩니다.</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-title"><i class="ph-fill ph-lightbulb"></i> AI 활용 꿀팁</div>
+                    <div class="tip-desc">CPA는 설득력이 핵심입니다. "prompt-painpoint.html" (타겟 페인포인트 분석 프롬프트)를 활용하여 독자가 <strong>지금 당장 상담을 신청하지 않으면 안 될 것 같은 불안감과 기대감</strong>을 동시에 심어주는 카피를 뽑아보세요.</div>
+                </div>
+            </div>
         </div>
-    
-    </main>
+    \n    </main>
 
 
     

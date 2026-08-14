@@ -202,27 +202,93 @@
 
         <!-- Dashboard Content -->
         
+        
         <div class="content">
             
     <style>
-        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
+        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 2rem; }
+        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
         .guide-p { font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 1rem; }
-        .guide-alert { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.2rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
-        .guide-alert.warning { background: #fef2f2; border-left-color: #ef4444; }
-        .guide-alert-title { font-weight: 700; color: #1e293b; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .guide-ul { margin: 1rem 0 1rem 1.5rem; color: #475569; line-height: 1.6; }
-        .guide-ul li { margin-bottom: 0.5rem; }
+        
+        .workflow-section { margin-top: 2.5rem; }
+        .workflow-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #1e293b; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; position: relative; }
+        
+        /* Connecting line */
+        .workflow-grid::before { content: ''; position: absolute; top: 3.5rem; left: 10%; right: 10%; height: 2px; background: #e2e8f0; z-index: 0; }
+        
+        @media (max-width: 1024px) {
+            .workflow-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+            .workflow-grid::before { display: none; }
+        }
+        @media (max-width: 640px) {
+            .workflow-grid { grid-template-columns: 1fr; }
+        }
+
+        .workflow-step { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.02); z-index: 1; transition: all 0.3s; }
+        .workflow-step:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1); }
+        .step-number { position: absolute; top: -15px; left: 1.5rem; width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .step-icon { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; display: inline-block; padding: 0.8rem; background: var(--primary-light); border-radius: 12px; }
+        .step-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem; }
+        .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        
+        .tip-box { background: linear-gradient(to right, #f8fafc, #eff6ff); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 12px 12px 0; margin-top: 2rem; }
+        .tip-title { font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
+        .tip-desc { font-size: 0.95rem; color: #475569; line-height: 1.6; }
     </style>
 
+            
             <div style="margin-bottom: 2rem;">
-                <h1 style="font-size: 1.8rem; color: #1e293b; margin-bottom: 0.5rem;">체험단 및 원고료 수익화</h1>
-                <p style="color: #64748b; font-size: 1.05rem;">내 채널의 영향력을 바탕으로 제품 협찬과 현금 원고료를 받는 플랫폼입니다.</p>
+                <h1 style="font-size: 1.8rem; color: #1e293b; margin-bottom: 0.5rem;">협찬 및 리뷰 (스폰서십)</h1>
+                <p style="color: #64748b; font-size: 1.05rem;">무료로 제품을 제공받거나 원고료를 받고 리뷰를 작성하는 인플루언서 수익화 방식입니다.</p>
             </div>
-            <div class="guide-container"><h2 class="guide-h2"><i class="ph ph-gift" style="color:#10b981;"></i> 1. 협찬 플랫폼의 양대 산맥</h2><p class="guide-p">블로그나 인스타 방문자가 500명만 넘어도 충분히 수익을 낼 수 있습니다.</p><ul class="guide-ul"><li><strong>네이버 브랜드커넥트:</strong> 네이버가 공식 지원하는 인플루언서 전용 매칭 플랫폼. 현금 단가가 매우 높음.</li><li><strong>레뷰(REVU):</strong> 국내 최대 체험단. 식당 방문, 뷰티 제품 등 일상적인 협찬이 가장 활발함.</li></ul></div>
+            
+            <div class="guide-container">
+                <h2 class="guide-h2"><i class="ph ph-gift" style="color:#8b5cf6;"></i> 협찬 수익 구조 튜토리얼</h2>
+                <p class="guide-p">블로그나 SNS 채널에 일정한 트래픽이 모이면 레뷰(Revu)나 네이버 브랜드커넥트 등을 통해 제품 협찬과 현금 원고료를 받을 수 있습니다. 초기 블로거의 가장 현실적인 수익 모델입니다.</p>
+            </div>
+
+            <div class="workflow-section">
+                <h3 class="workflow-title"><i class="ph-fill ph-git-merge"></i> 한눈에 보는 워크플로우</h3>
+                <div class="workflow-grid">
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon"><i class="ph ph-sign-in"></i></div>
+                        <h4 class="step-title">1. 체험단 사이트 가입</h4>
+                        <p class="step-desc">레뷰, 디너의여왕, 강남맛집 등 체험단 플랫폼에 가입하고 내 채널을 등록합니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon"><i class="ph ph-hand-pointing"></i></div>
+                        <h4 class="step-title">2. 캠페인 지원</h4>
+                        <p class="step-desc">내 블로그 지수와 카테고리에 맞는 제품(또는 맛집) 캠페인에 지원하여 선정됩니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon"><i class="ph ph-package"></i></div>
+                        <h4 class="step-title">3. 제품 수령 & 사진 촬영</h4>
+                        <p class="step-desc">제품을 배송받거나 매장에 방문하여 가이드라인에 맞게 직접 사진과 영상을 촬영합니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon"><i class="ph ph-note-pencil"></i></div>
+                        <h4 class="step-title">4. AI 리뷰 작성 & 발행</h4>
+                        <p class="step-desc">제공받은 가이드라인 키워드를 AI 프롬프트에 넣어 자연스럽고 검색에 잘 잡히는 리뷰를 발행합니다.</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-title"><i class="ph-fill ph-lightbulb"></i> AI 활용 꿀팁</div>
+                    <div class="tip-desc">업체에서 준 가이드라인(필수 키워드, 강조점)을 AI에게 그대로 전달하세요. 단, AI가 쓴 티가 나지 않도록 "prompt-review.html" (구매 유도 상품 리뷰 프롬프트)의 페르소나를 내 말투에 맞게 조정하여 사람 냄새가 나는 글을 만드는 것이 중요합니다.</div>
+                </div>
+            </div>
         </div>
-    
-    </main>
+    \n    </main>
 
 
     

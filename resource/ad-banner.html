@@ -202,27 +202,93 @@
 
         <!-- Dashboard Content -->
         
+        
         <div class="content">
             
     <style>
-        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
+        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 2rem; }
+        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
         .guide-p { font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 1rem; }
-        .guide-alert { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.2rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
-        .guide-alert.warning { background: #fef2f2; border-left-color: #ef4444; }
-        .guide-alert-title { font-weight: 700; color: #1e293b; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .guide-ul { margin: 1rem 0 1rem 1.5rem; color: #475569; line-height: 1.6; }
-        .guide-ul li { margin-bottom: 0.5rem; }
+        
+        .workflow-section { margin-top: 2.5rem; }
+        .workflow-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #1e293b; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; position: relative; }
+        
+        /* Connecting line */
+        .workflow-grid::before { content: ''; position: absolute; top: 3.5rem; left: 10%; right: 10%; height: 2px; background: #e2e8f0; z-index: 0; }
+        
+        @media (max-width: 1024px) {
+            .workflow-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+            .workflow-grid::before { display: none; }
+        }
+        @media (max-width: 640px) {
+            .workflow-grid { grid-template-columns: 1fr; }
+        }
+
+        .workflow-step { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.02); z-index: 1; transition: all 0.3s; }
+        .workflow-step:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1); }
+        .step-number { position: absolute; top: -15px; left: 1.5rem; width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .step-icon { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; display: inline-block; padding: 0.8rem; background: var(--primary-light); border-radius: 12px; }
+        .step-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem; }
+        .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        
+        .tip-box { background: linear-gradient(to right, #f8fafc, #eff6ff); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 12px 12px 0; margin-top: 2rem; }
+        .tip-title { font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
+        .tip-desc { font-size: 0.95rem; color: #475569; line-height: 1.6; }
     </style>
 
+            
             <div style="margin-bottom: 2rem;">
-                <h1 style="font-size: 1.8rem; color: #1e293b; margin-bottom: 0.5rem;">클릭/노출 기반 배너 수익</h1>
-                <p style="color: #64748b; font-size: 1.05rem;">글을 읽는 방문자 수(트래픽)에 비례하여 자동으로 발생되는 패시브 인컴입니다.</p>
+                <h1 style="font-size: 1.8rem; color: #1e293b; margin-bottom: 0.5rem;">디스플레이 배너 광고</h1>
+                <p style="color: #64748b; font-size: 1.05rem;">블로그에 방문자가 들어와 광고를 보거나 클릭하기만 해도 수익이 쌓이는 패시브 인컴 구조입니다.</p>
             </div>
-            <div class="guide-container"><h2 class="guide-h2"><i class="ph ph-mouse" style="color:#f59e0b;"></i> 1. 애드포스트 vs 애드센스 비교</h2><p class="guide-p">트래픽 채널에 따라 달 수 있는 배너의 종류와 단가가 다릅니다.</p><div class="guide-alert"><div class="guide-alert-title">단가 차이</div><ul class="guide-ul"><li><strong>네이버 애드포스트:</strong> 단가가 낮음(1클릭 50~100원 수준). 하지만 네이버 검색 유입으로 트래픽 모으기가 압도적으로 쉬움.</li><li><strong>구글 애드센스(티스토리/워드프레스):</strong> 단가가 높음(1클릭 달러 정산). 이른바 고시라 불릴 만큼 승인이 까다롭지만, 월 천만 원 이상 수익자 대다수가 애드센스를 사용.</li></ul></div></div>
+            
+            <div class="guide-container">
+                <h2 class="guide-h2"><i class="ph ph-mouse" style="color:#f59e0b;"></i> 배너 광고 수익 구조 튜토리얼</h2>
+                <p class="guide-p">가장 대표적인 패시브 인컴(Passive Income)입니다. 구글 애드센스나 네이버 애드포스트를 달아두면, 내가 자는 동안에도 방문자가 글을 읽고 광고를 클릭하며 달러나 원화가 적립됩니다.</p>
+            </div>
+
+            <div class="workflow-section">
+                <h3 class="workflow-title"><i class="ph-fill ph-git-merge"></i> 한눈에 보는 워크플로우</h3>
+                <div class="workflow-grid">
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon"><i class="ph ph-browser"></i></div>
+                        <h4 class="step-title">1. 채널 개설 및 글쓰기</h4>
+                        <p class="step-desc">티스토리, 워드프레스, 네이버 블로그를 개설하고 AI를 활용해 양질의 정보성 글을 10~20개 작성합니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon"><i class="ph ph-seal-check"></i></div>
+                        <h4 class="step-title">2. 광고 승인 신청</h4>
+                        <p class="step-desc">애드센스(일명 애드고시) 또는 애드포스트에 매체 승인을 신청하여 통과합니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon"><i class="ph ph-trend-up"></i></div>
+                        <h4 class="step-title">3. 롱테일 키워드 발행</h4>
+                        <p class="step-desc">대형 키워드 대신, 경쟁은 적지만 검색량은 꾸준한 롱테일 키워드로 트래픽을 끌어모읍니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon"><i class="ph ph-money"></i></div>
+                        <h4 class="step-title">4. 광고 자동 노출 & 정산</h4>
+                        <p class="step-desc">방문자 맞춤형 광고가 자동으로 송출되며, 노출수와 클릭수(CPC)에 비례하여 수익이 정산됩니다.</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-title"><i class="ph-fill ph-lightbulb"></i> AI 활용 꿀팁</div>
+                    <div class="tip-desc">애드센스 승인을 위해서는 구글 SEO 양식에 맞는 구조화된 글이 필수입니다. "prompt-seo.html" (상위노출 랭킹 알고리즘 맞춤 프롬프트)를 사용하여 H 태그(제목1, 제목2)가 완벽하게 잡힌 위키피디아 스타일의 글을 대량으로 찍어내어 승인 확률을 높이세요.</div>
+                </div>
+            </div>
         </div>
-    
-    </main>
+    \n    </main>
 
 
     

@@ -202,27 +202,93 @@
 
         <!-- Dashboard Content -->
         
+        
         <div class="content">
             
     <style>
-        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
+        .guide-container { background: #fff; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 2rem; }
+        .guide-h2 { font-size: 1.4rem; color: #1e293b; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
         .guide-p { font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 1rem; }
-        .guide-alert { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.2rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
-        .guide-alert.warning { background: #fef2f2; border-left-color: #ef4444; }
-        .guide-alert-title { font-weight: 700; color: #1e293b; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .guide-ul { margin: 1rem 0 1rem 1.5rem; color: #475569; line-height: 1.6; }
-        .guide-ul li { margin-bottom: 0.5rem; }
+        
+        .workflow-section { margin-top: 2.5rem; }
+        .workflow-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #1e293b; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; position: relative; }
+        
+        /* Connecting line */
+        .workflow-grid::before { content: ''; position: absolute; top: 3.5rem; left: 10%; right: 10%; height: 2px; background: #e2e8f0; z-index: 0; }
+        
+        @media (max-width: 1024px) {
+            .workflow-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+            .workflow-grid::before { display: none; }
+        }
+        @media (max-width: 640px) {
+            .workflow-grid { grid-template-columns: 1fr; }
+        }
+
+        .workflow-step { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.02); z-index: 1; transition: all 0.3s; }
+        .workflow-step:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1); }
+        .step-number { position: absolute; top: -15px; left: 1.5rem; width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .step-icon { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; display: inline-block; padding: 0.8rem; background: var(--primary-light); border-radius: 12px; }
+        .step-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem; }
+        .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        
+        .tip-box { background: linear-gradient(to right, #f8fafc, #eff6ff); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 12px 12px 0; margin-top: 2rem; }
+        .tip-title { font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
+        .tip-desc { font-size: 0.95rem; color: #475569; line-height: 1.6; }
     </style>
 
+            
             <div style="margin-bottom: 2rem;">
                 <h1 style="font-size: 1.8rem; color: #1e293b; margin-bottom: 0.5rem;">상품 판매 커미션 (제휴 마케팅)</h1>
-                <p style="color: #64748b; font-size: 1.05rem;">국내외 쇼핑몰의 상품을 대신 팔아주고 판매액의 일정 %를 수수료로 받습니다.</p>
+                <p style="color: #64748b; font-size: 1.05rem;">국내외 쇼핑몰의 상품을 대신 홍보하고, 판매액의 일정 퍼센트를 수수료로 받습니다.</p>
             </div>
-            <div class="guide-container"><h2 class="guide-h2"><i class="ph ph-shopping-cart" style="color:#ef4444;"></i> 1. 플랫폼별 공략법</h2><ul class="guide-ul"><li><strong>쿠팡 파트너스:</strong> 수익률 3%. 단가가 낮지만 한국인 특성상 전환율(구매율)이 미친듯이 높습니다. 링크 클릭 후 24시간 내 다른 물건을 사도 내 수익이 됩니다.</li><li><strong>클릭뱅크(ClickBank):</strong> 수익률 50~75%. 전자책, 소프트웨어 등 디지털 상품을 판매합니다. 마진율이 엄청나 해외 트래픽(핀터레스트/틱톡)을 뚫으면 수익 단위가 달라집니다.</li></ul></div>
+            
+            <div class="guide-container">
+                <h2 class="guide-h2"><i class="ph ph-shopping-cart" style="color:#ef4444;"></i> 제휴 마케팅 수익 구조 튜토리얼</h2>
+                <p class="guide-p">쿠팡 파트너스, 아마존 어소시에이트, 클릭뱅크 등을 활용합니다. 고객이 내 링크를 눌러 상품을 구매하면, 전체 결제 금액의 3% ~ 75%까지 나에게 커미션으로 떨어지는 강력한 수익 모델입니다.</p>
+            </div>
+
+            <div class="workflow-section">
+                <h3 class="workflow-title"><i class="ph-fill ph-git-merge"></i> 한눈에 보는 워크플로우</h3>
+                <div class="workflow-grid">
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon"><i class="ph ph-storefront"></i></div>
+                        <h4 class="step-title">1. 파트너스 가입</h4>
+                        <p class="step-desc">쿠팡 파트너스, 알리 익스프레스, 혹은 클릭뱅크에 가입하여 판매자 자격을 얻습니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon"><i class="ph ph-magnifying-glass-plus"></i></div>
+                        <h4 class="step-title">2. 소구점(상품) 발굴</h4>
+                        <p class="step-desc">시즌 이슈나 트렌드에 맞는 상품(예: 여름 제습기, 겨울 온풍기)을 선정합니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon"><i class="ph ph-scales"></i></div>
+                        <h4 class="step-title">3. 큐레이션/비교 글 작성</h4>
+                        <p class="step-desc">AI를 활용해 단순 상품 나열이 아닌 장단점 비교, TOP 3 추천 등 가치를 제공하는 큐레이션 글을 씁니다.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon"><i class="ph ph-hand-coins"></i></div>
+                        <h4 class="step-title">4. 구매 전환 & 커미션</h4>
+                        <p class="step-desc">글에 나만의 제휴 링크를 삽입합니다. 방문자가 클릭 후 구매 시 자동으로 커미션이 지급됩니다.</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-title"><i class="ph-fill ph-lightbulb"></i> AI 활용 꿀팁</div>
+                    <div class="tip-desc">제휴 마케팅은 무조건 사라고 강요하면 이탈합니다. "prompt-detail.html" (수익형 블로그 구조화) 프롬프트를 통해 [문제 인식 -> 정보 제공 -> 자연스러운 상품 제안]의 3단계를 거치는 부드러운 깔때기(Funnel) 구조의 글을 작성하세요.</div>
+                </div>
+            </div>
         </div>
-    
-    </main>
+    \n    </main>
 
 
     
