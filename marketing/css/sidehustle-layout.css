@@ -56,7 +56,7 @@ body { background-color: var(--bg-main); color: var(--text-main); line-height: 1
 .card-desc { font-size: 0.9rem; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
 /* Detail Content Area */
-.main-content { margin-left: 300px; padding: 3rem 4rem 5rem; min-width: 0; max-width: 1600px; }
+.main-content { margin-left: 300px; padding: 3rem 4rem 2rem; min-width: 0; max-width: 1600px; }
 
 /* Detail Header */
 .detail-header { background: #ffffff; border: 1px solid var(--border-color); padding: 3rem; border-radius: 20px; margin-bottom: 3rem; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }

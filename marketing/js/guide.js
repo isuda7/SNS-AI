@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 
-                <div style="text-align:center; margin-top:5rem;">
+                <div style="text-align:center; margin-top:2rem; margin-bottom:2rem;">
                     <a href="side_hustle_prompt.md" target="_blank" class="prompt-btn">AI 마스터 프롬프트로 기획안 복제하기</a>
                 </div>
             </div>
