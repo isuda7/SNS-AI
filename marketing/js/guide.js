@@ -3,23 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('main-content');
     const landingCards = document.getElementById('landing-cards');
     
-    // 1. Top Nav (대메뉴 & 소메뉴 드롭다운) 렌더링
+    // 1. Sidebar Nav (대메뉴 및 완전히 펼쳐진 소메뉴) 렌더링
     MKT_DATA.forEach((cat, index) => {
-        const catDiv = document.createElement('div');
-        catDiv.className = 'cat-item';
-        // 카테고리 제목에서 숫자 제거 (ex: "1. 그래픽·디자인 가공 대행" -> "그래픽·디자인 가공 대행")
-        const catTitle = cat.title.replace(/^\d+\.\s*/, '');
-        catDiv.innerHTML = `${cat.icon} ${catTitle}`;
+        const groupDiv = document.createElement('div');
+        groupDiv.className = 'cat-group';
+        
+        // 카테고리 제목에서 숫자 제거
+        const catTitleStr = cat.title.replace(/^\d+\.\s*/, '');
+        
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'cat-title';
+        titleDiv.innerHTML = `${cat.icon} <span>${catTitleStr}</span>`;
+        groupDiv.appendChild(titleDiv);
         
         if (cat.subMenus && cat.subMenus.length > 0) {
-            // 메인 카테고리 자체를 클릭했을 때 첫 번째 소메뉴 실행
-            catDiv.onclick = (e) => {
-                e.preventDefault();
-                document.querySelectorAll('.cat-item').forEach(item => item.classList.remove('active'));
-                catDiv.classList.add('active');
-                renderContent(catTitle, cat.subMenus[0]);
-            };
-
             const subMenuDiv = document.createElement('div');
             subMenuDiv.className = 'sub-menu';
             
@@ -30,18 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 subLink.textContent = sub.title;
                 subLink.onclick = (e) => {
                     e.preventDefault();
-                    e.stopPropagation(); // 부모(catDiv) 클릭 이벤트 방지
-                    // Set active
-                    document.querySelectorAll('.cat-item').forEach(item => item.classList.remove('active'));
-                    catDiv.classList.add('active');
-                    renderContent(catTitle, sub);
+                    // 모든 sub-item에서 active 제거
+                    document.querySelectorAll('.sub-item').forEach(item => item.classList.remove('active'));
+                    // 클릭한 요소만 active 추가
+                    subLink.classList.add('active');
+                    
+                    renderContent(catTitleStr, sub);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 };
                 subMenuDiv.appendChild(subLink);
             });
-            catDiv.appendChild(subMenuDiv);
+            groupDiv.appendChild(subMenuDiv);
         }
         
-        categoryNav.appendChild(catDiv);
+        categoryNav.appendChild(groupDiv);
 
         // 랜딩 카드 렌더링 (홈 화면이 렌더링될 때만 작동)
         if (landingCards) {
@@ -50,16 +49,21 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'card';
             card.onclick = () => {
                 if (cat.subMenus && cat.subMenus.length > 0) {
-                    document.querySelectorAll('.cat-item').forEach(item => item.classList.remove('active'));
-                    catDiv.classList.add('active');
-                    renderContent(catTitle, cat.subMenus[0]);
+                    document.querySelectorAll('.sub-item').forEach(item => item.classList.remove('active'));
+                    // 카드 클릭 시 해당 카테고리의 첫 번째 소메뉴를 활성화
+                    const firstSubId = cat.subMenus[0].id;
+                    const targetLink = document.querySelector(`.sub-item[href="#${firstSubId}"]`);
+                    if(targetLink) targetLink.classList.add('active');
+                    
+                    renderContent(catTitleStr, cat.subMenus[0]);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
                     alert('아직 상세 가이드가 준비되지 않았습니다.');
                 }
             };
             card.innerHTML = `
                 <div class="card-icon">${cat.icon}</div>
-                <div class="card-title">${catTitle}</div>
+                <div class="card-title">${catTitleStr}</div>
                 <div class="card-desc">${desc}</div>
             `;
             landingCards.appendChild(card);
@@ -71,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
         const html = `
-            <div class="main-content animate-fade-in">
+            <div class="detail-wrapper animate-fade-in">
                 <div class="detail-header">
                     <div style="color:var(--primary-glow); font-weight:700; margin-bottom:0.5rem; position:relative; z-index:2;">${catTitle}</div>
                     <h1 class="detail-title">${sub.title}</h1>
